@@ -3937,9 +3937,11 @@
 
 		</div>
 
-		<div class="border-b border-gray-300/50 flex items-center h-[100vh]">
+		<div class="border-b border-gray-300/50 flex h-[100vh]">
 
-			<div class="w-[20%] h-[100vh] p-4 overflow-scroll">
+			<div class="w-[20%] h-[100vh] p-4 overflow-y-scroll overflow-x-hidden">
+
+				<div class="mb-4 px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-left">Fermer cette fenêtre</div>
 
 				<!-- LIGUE PROFESSIONNELLE DE FOOTBALL - TEST Ligue 1 - Championnat de France de football -->
 				<div class="bg-[#1E2129] w-full border border-gray-300/25">
@@ -4082,41 +4084,163 @@
 
 			</div>
 
-			<div class="w-[60%] h-[100vh] border-x border-gray-300/25 flex items-center justify-center">
+			<div class="w-[60%] h-[100vh] border-x border-gray-300/25">
 
-				<!-- CARTE D'UN JOUEUR QUI NE JOUE PAS DANS NOTRE ÉQUIPE -->
-				<div class="bg-[#1E2129] w-[85vh] border border-gray-300/25 grid grid-cols-2">
+				<div class="w-full h-[10vh] px-4 border-b border-gray-300/25 flex items-center justify-between">
 
-					<div class="w-full h-[60vh] px-6 pt-6 pb-0 pb-1 w-full border-r border-gray-300/25">
+					<div class="w-[25vh] py-2 px-4 rounded-lg bg-gray-300/25 text-left">
 
-						<div class="w-full flex items-start justify-between">
+						<p class="text-white text-[16px]">NOM_ENTRAINEUR</p>
 
-							<div class="w-28 h-28 rounded-full bg-[url('https://img-3.journaldesfemmes.fr/xuTW9ZQ2QC6vX8e-Qhuc9BLSSZI=/2401x/smart/d4613968dbc644c88b2a2dce7b908b2c/ccmcms-jdf/19204222.jpg')] bg-cover bg-center flex items-center">
+						<p class="text-gray-300 text-[13px]">Paris Saint Germain - Ligue 1</p>
 
-								<img alt="Logo PSG" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/1200px-Logo_of_AC_Milan.svg.png" class="h-10 translate-x-[-5px] translate-y-[-40px] translate-x-[-25px]">
+					</div>
 
-								<div class="w-8 h-8 rounded-full bg-green-500 text-white text-[16px] flex items-center justify-center translate-y-[40px] translate-x-[60px] border-2 border-[#1E2129]">86</div>
+					<div class="w-[25vh] py-2 px-4 rounded-lg bg-gray-300/25 text-right text-white text-[16px]">2 000 000 000 €<span class="ml-3 px-2 py-[1px] rounded-md bg-green-500 text-green-100 text-[15px]">+50%</span></div>
+
+				</div>
+
+				<div class="w-full h-[90vh] flex items-center justify-center">
+
+					<!-- CARTE D'UN JOUEUR QUI NE JOUE PAS DANS NOTRE ÉQUIPE -->
+					<div class="bg-[#1E2129] w-[85vh] border border-gray-300/25 grid grid-cols-2">
+
+						<div class="w-full h-[60vh] px-6 pt-6 pb-0 pb-1 w-full border-r border-gray-300/25">
+
+							<div class="w-full flex items-start justify-between">
+
+								<div class="w-28 h-28 rounded-full bg-[url('https://img-3.journaldesfemmes.fr/xuTW9ZQ2QC6vX8e-Qhuc9BLSSZI=/2401x/smart/d4613968dbc644c88b2a2dce7b908b2c/ccmcms-jdf/19204222.jpg')] bg-cover bg-center flex items-center">
+
+									<img alt="Logo PSG" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/1200px-Logo_of_AC_Milan.svg.png" class="h-10 translate-x-[-5px] translate-y-[-40px] translate-x-[-25px]">
+
+									<div class="w-8 h-8 rounded-full bg-green-500 text-white text-[16px] flex items-center justify-center translate-y-[40px] translate-x-[60px] border-2 border-[#1E2129]">86</div>
+
+								</div>
+
+								<div class="grid grid-cols-1 gap-2">
+
+									<span class="px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-right">Prendre contact avec le Joueur</span>
+
+									<span class="px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-right">Prendre contact avec le Club</span>
+
+									<div class="block mt-2">
+
+										<div class="w-full flex items-center justify-between">
+
+											<p class="text-white text-[12px]">Niveau de Relation :</p>
+
+											<p class="text-white text-[12px]">86%</p>
+
+										</div>
+
+										<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+											<div class="w-[86%] bg-green-500 h-[5px] rounded-full"></div>
+										</div>
+
+									</div>
+
+								</div>
 
 							</div>
 
-							<div class="grid grid-cols-1 gap-2">
+							<p class="mt-3 text-white text-[20px]">Olivier Giroud <span class="ml-1 px-[6px] py-[2px] rounded-sm bg-gray-300/25 text-white text-[14px]">36 ans</span></p>
 
-								<span class="px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-right">Prendre contact avec le Joueur</span>
+							<p class="mt-1 text-gray-300 text-[14px]"><span class="hover:underline cursor-pointer">Attaquant</span> - <span class="hover:underline cursor-pointer">AC Milan</span> - <span class="hover:underline cursor-pointer">Serie A</span></p>
 
-								<span class="px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-right">Prendre contact avec le Club</span>
+							<div class="text-white text-[12px] mt-4 mb-4 pt-4 border-t border-gray-300/25 grid grid-cols-1 gap-4">
 
-								<div class="block mt-2">
+								<div class="block">
 
 									<div class="w-full flex items-center justify-between">
 
-										<p class="text-white text-[12px]">Niveau de Relation :</p>
+										<p class="text-white text-[12px]">Vitesse :</p>
 
-										<p class="text-white text-[12px]">86%</p>
+										<p class="text-white text-[12px]">67%</p>
 
 									</div>
 
 									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-										<div class="w-[86%] bg-green-500 h-[5px] rounded-full"></div>
+										<div class="w-[67%] bg-amber-500 h-[5px] rounded-full"></div>
+									</div>
+
+								</div>
+
+								<div class="block">
+
+									<div class="w-full flex items-center justify-between">
+
+										<p class="text-white text-[12px]">Passes :</p>
+
+										<p class="text-white text-[12px]">94%</p>
+
+									</div>
+
+									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+										<div class="w-[94%] bg-green-500 h-[5px] rounded-full"></div>
+									</div>
+
+								</div>
+
+								<div class="block">
+
+									<div class="w-full flex items-center justify-between">
+
+										<p class="text-white text-[12px]">Tirs :</p>
+
+										<p class="text-white text-[12px]">96%</p>
+
+									</div>
+
+									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+										<div class="w-[96%] bg-green-500 h-[5px] rounded-full"></div>
+									</div>
+
+								</div>
+
+								<div class="block">
+
+									<div class="w-full flex items-center justify-between">
+
+										<p class="text-white text-[12px]">Défense :</p>
+
+										<p class="text-white text-[12px]">78%</p>
+
+									</div>
+
+									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+										<div class="w-[78%] bg-green-500 h-[5px] rounded-full"></div>
+									</div>
+
+								</div>
+
+								<div class="block">
+
+									<div class="w-full flex items-center justify-between">
+
+										<p class="text-white text-[12px]">Gardien :</p>
+
+										<p class="text-white text-[12px]">26%</p>
+
+									</div>
+
+									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+										<div class="w-[26%] bg-red-500 h-[5px] rounded-full"></div>
+									</div>
+
+								</div>
+
+								<div class="block">
+
+									<div class="w-full flex items-center justify-between">
+
+										<p class="text-white text-[12px]">Leadership :</p>
+
+										<p class="text-white text-[12px]">98%</p>
+
+									</div>
+
+									<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
+										<div class="w-[98%] bg-green-500 h-[5px] rounded-full"></div>
 									</div>
 
 								</div>
@@ -4125,368 +4249,264 @@
 
 						</div>
 
-						<p class="mt-3 text-white text-[20px]">Olivier Giroud <span class="ml-1 px-[6px] py-[2px] rounded-sm bg-gray-300/25 text-white text-[14px]">36 ans</span></p>
+						<div class="w-full h-[60vh] px-6 pt-6 pb-0 pb-1 overflow-y-auto">
 
-						<p class="mt-1 text-gray-300 text-[14px]"><span class="hover:underline cursor-pointer">Attaquant</span> - <span class="hover:underline cursor-pointer">AC Milan</span> - <span class="hover:underline cursor-pointer">Serie A</span></p>
+							<div class="px-[8px] py-[3px] rounded-md bg-gray-300/25 text-white text-[18px] flex items-center justify-between">Valeur : 250 000 000 €<span class="px-2 py-[1px] rounded-md bg-green-500 text-green-100 text-[15px]">+1116%</span></div>
 
-						<div class="text-white text-[12px] mt-4 mb-4 pt-4 border-t border-gray-300/25 grid grid-cols-1 gap-4">
+							<div class="flex items-center mt-2">
 
-							<div class="block">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+								</svg>
 
-								<div class="w-full flex items-center justify-between">
-
-									<p class="text-white text-[12px]">Vitesse :</p>
-
-									<p class="text-white text-[12px]">67%</p>
-
-								</div>
-
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[67%] bg-amber-500 h-[5px] rounded-full"></div>
-								</div>
+								<p class="ml-2 text-green-500 text-[14px]">Joueur en pleine forme (95%)</p>
 
 							</div>
 
-							<div class="block">
+							<div class="mt-6 text-white text-[12px] mb-6 py-6 grid grid-cols-3 gap-3 border-y border-gray-300/25">
 
-								<div class="w-full flex items-center justify-between">
+								<div class="w-full flex items-center justify-center">
 
-									<p class="text-white text-[12px]">Passes :</p>
+									<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
 
-									<p class="text-white text-[12px]">94%</p>
+										<span class="tooltiptext">Élément moteur</span>
 
-								</div>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+										</svg>
 
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[94%] bg-green-500 h-[5px] rounded-full"></div>
-								</div>
-
-							</div>
-
-							<div class="block">
-
-								<div class="w-full flex items-center justify-between">
-
-									<p class="text-white text-[12px]">Tirs :</p>
-
-									<p class="text-white text-[12px]">96%</p>
+									</div>
 
 								</div>
 
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[96%] bg-green-500 h-[5px] rounded-full"></div>
-								</div>
+								<div class="w-full flex items-center justify-center">
 
-							</div>
+									<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
 
-							<div class="block">
+										<span class="tooltiptext">Communicatif</span>
 
-								<div class="w-full flex items-center justify-between">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+										</svg>
 
-									<p class="text-white text-[12px]">Défense :</p>
-
-									<p class="text-white text-[12px]">78%</p>
+									</div>
 
 								</div>
 
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[78%] bg-green-500 h-[5px] rounded-full"></div>
-								</div>
+								<div class="w-full flex items-center justify-center">
 
-							</div>
+									<div class="w-[8vh] h-[8vh]  flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
 
-							<div class="block">
+										<span class="tooltiptext">Travailleur</span>
 
-								<div class="w-full flex items-center justify-between">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
+										</svg>
 
-									<p class="text-white text-[12px]">Gardien :</p>
-
-									<p class="text-white text-[12px]">26%</p>
+									</div>
 
 								</div>
 
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[26%] bg-red-500 h-[5px] rounded-full"></div>
+								<div class="w-full flex items-center justify-center">
+
+									<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
+
+										<span class="tooltiptext">Star Mondiale</span>
+
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+											<path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+										</svg>
+
+									</div>
+
 								</div>
 
-							</div>
+								<div class="w-full flex items-center justify-center">
 
-							<div class="block">
+									<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
 
-								<div class="w-full flex items-center justify-between">
+										<span class="tooltiptext">Favori des Fans</span>
 
-									<p class="text-white text-[12px]">Leadership :</p>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+										</svg>
 
-									<p class="text-white text-[12px]">98%</p>
+									</div>
 
 								</div>
 
-								<div class="mt-1 w-full bg-gray-300/25 rounded-full p-[2px]">
-									<div class="w-[98%] bg-green-500 h-[5px] rounded-full"></div>
-								</div>
+								<div class="w-full flex items-center justify-center">
 
-							</div>
+									<div class="w-[8vh] h-[8vh]  flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
 
-						</div>
+										<span class="tooltiptext">Soif de victoire</span>
 
-					</div>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
+										</svg>
 
-					<div class="w-full h-[60vh] px-6 pt-6 pb-0 pb-1 overflow-y-auto">
-
-						<div class="px-[8px] py-[3px] rounded-md bg-gray-300/25 text-white text-[18px] flex items-center justify-between">Valeur : 250 000 000 €<span class="px-2 py-[1px] rounded-md bg-green-500 text-green-100 text-[15px]">+1116%</span></div>
-
-						<div class="flex items-center mt-2">
-
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
-							</svg>
-
-							<p class="ml-2 text-green-500 text-[14px]">Joueur en pleine forme (95%)</p>
-
-						</div>
-
-						<div class="mt-6 text-white text-[12px] mb-6 py-6 grid grid-cols-3 gap-3 border-y border-gray-300/25">
-
-							<div class="w-full flex items-center justify-center">
-
-								<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
-
-									<span class="tooltiptext">Élément moteur</span>
-
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-									</svg>
+									</div>
 
 								</div>
 
 							</div>
 
-							<div class="w-full flex items-center justify-center">
+							<div class="text-white text-[12px] mb-4 pb-4 border-b border-gray-300/25">
 
-								<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
+								<div class="flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
 
-									<span class="tooltiptext">Communicatif</span>
+									<img src="https://www.footmercato.net/build/images/default_competition.ce0a5688.png" alt="Logo CDM" class="w-5 h-5">
 
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-									</svg>
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Coupe du Monde</p>
+
+										<p class="text-gray-300 text-[12px]">2018</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/logo-uefa-champions-league.png" alt="Logo LDC" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Ligue des Champions UEFA</p>
+
+										<p class="text-gray-300 text-[12px]">2020/2021</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/uefa-nations-league.png" alt="Logo Nation League" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">UEFA Nations League</p>
+
+										<p class="text-gray-300 text-[12px]">2020/2021</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/ligue-1-uber-eats.png" alt="Logo Ligue 1" class="w-5 h-5">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Ligue 1 Uber Eats</p>
+
+										<p class="text-gray-300 text-[12px]">2011/2012</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/lega-serie-a-tim.png" alt="Logo Serie A" class="w-5 h-5">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Serie A</p>
+
+										<p class="text-gray-300 text-[12px]">2021/2022</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/emirates-fa-cup-logo.png" alt="Logo FA Cup" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">The Emirates FA Cup</p>
+
+										<p class="text-gray-300 text-[12px]">2013/2014, 2014/2015, 2016/2017, 2017/2018</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/community-shield-england.png" alt="Logo Community Shield" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Community Shield</p>
+
+										<p class="text-gray-300 text-[12px]">2014/2015, 2015/2016, 2017/2018</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/emirates-cup-2019-logo.png" alt="Logo Emirates Cup" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Emirates Cup</p>
+
+										<p class="text-gray-300 text-[12px]">2015, 2017</p>
+
+									</div>
+
+								</div>
+
+								<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
+
+									<img src="https://assets-fr.imgfoot.com/media/cache/60x60/premier-league-asia-trophy.png" alt="Logo Premier League Asia Trophy" class="w-5 h-5 bg-white">
+
+									<div class="ml-2 pl-2 border-l border-gray-300 block">
+
+										<p class="text-white text-[14px]">Premier League Asia Trophy</p>
+
+										<p class="text-gray-300 text-[12px]">2015</p>
+
+									</div>
 
 								</div>
 
 							</div>
 
-							<div class="w-full flex items-center justify-center">
+							<div class="text-white text-[12px] mb-4 pb-6 grid grid-cols-1 gap-2">
 
-								<div class="w-[8vh] h-[8vh]  flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
+								<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
 
-									<span class="tooltiptext">Travailleur</span>
+									<p class="text-white text-[14px]">Salaire :</p>
 
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-									</svg>
+									<p class="text-gray-200 text-[14px]">73 000 € / semaine</p>
 
 								</div>
 
-							</div>
+								<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
 
-							<div class="w-full flex items-center justify-center">
+									<p class="text-white text-[14px]">Nb buts total :</p>
 
-								<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
-
-									<span class="tooltiptext">Star Mondiale</span>
-
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-										<path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-									</svg>
+									<p class="text-gray-200 text-[14px]">244 buts</p>
 
 								</div>
 
-							</div>
+								<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
 
-							<div class="w-full flex items-center justify-center">
+									<p class="text-white text-[14px]">Nb clubs pro :</p>
 
-								<div class="w-[8vh] h-[8vh] flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
-
-									<span class="tooltiptext">Favori des Fans</span>
-
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-									</svg>
+									<p class="text-gray-200 text-[14px]">7 clubs</p>
 
 								</div>
-
-							</div>
-
-							<div class="w-full flex items-center justify-center">
-
-								<div class="w-[8vh] h-[8vh]  flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all border-2 border-gray-300/25 rounded-full tooltip">
-
-									<span class="tooltiptext">Soif de victoire</span>
-
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[4vh] h-[4vh] text-white">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
-									</svg>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="text-white text-[12px] mb-4 pb-4 border-b border-gray-300/25">
-
-							<div class="flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://www.footmercato.net/build/images/default_competition.ce0a5688.png" alt="Logo CDM" class="w-5 h-5">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Coupe du Monde</p>
-
-									<p class="text-gray-300 text-[12px]">2018</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/logo-uefa-champions-league.png" alt="Logo LDC" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Ligue des Champions UEFA</p>
-
-									<p class="text-gray-300 text-[12px]">2020/2021</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/uefa-nations-league.png" alt="Logo Nation League" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">UEFA Nations League</p>
-
-									<p class="text-gray-300 text-[12px]">2020/2021</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/ligue-1-uber-eats.png" alt="Logo Ligue 1" class="w-5 h-5">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Ligue 1 Uber Eats</p>
-
-									<p class="text-gray-300 text-[12px]">2011/2012</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/lega-serie-a-tim.png" alt="Logo Serie A" class="w-5 h-5">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Serie A</p>
-
-									<p class="text-gray-300 text-[12px]">2021/2022</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/emirates-fa-cup-logo.png" alt="Logo FA Cup" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">The Emirates FA Cup</p>
-
-									<p class="text-gray-300 text-[12px]">2013/2014, 2014/2015, 2016/2017, 2017/2018</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/community-shield-england.png" alt="Logo Community Shield" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Community Shield</p>
-
-									<p class="text-gray-300 text-[12px]">2014/2015, 2015/2016, 2017/2018</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/emirates-cup-2019-logo.png" alt="Logo Emirates Cup" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Emirates Cup</p>
-
-									<p class="text-gray-300 text-[12px]">2015, 2017</p>
-
-								</div>
-
-							</div>
-
-							<div class="mt-2 flex items-start bg-gray-300/25 px-3 py-2 rounded-md">
-
-								<img src="https://assets-fr.imgfoot.com/media/cache/60x60/premier-league-asia-trophy.png" alt="Logo Premier League Asia Trophy" class="w-5 h-5 bg-white">
-
-								<div class="ml-2 pl-2 border-l border-gray-300 block">
-
-									<p class="text-white text-[14px]">Premier League Asia Trophy</p>
-
-									<p class="text-gray-300 text-[12px]">2015</p>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="text-white text-[12px] mb-4 pb-6 grid grid-cols-1 gap-2">
-
-							<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
-
-								<p class="text-white text-[14px]">Salaire :</p>
-
-								<p class="text-gray-200 text-[14px]">73 000 € / semaine</p>
-
-							</div>
-
-							<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
-
-								<p class="text-white text-[14px]">Nb buts total :</p>
-
-								<p class="text-gray-200 text-[14px]">244 buts</p>
-
-							</div>
-
-							<div class="flex items-center justify-between bg-gray-300/25 px-2 py-1 rounded-md">
-
-								<p class="text-white text-[14px]">Nb clubs pro :</p>
-
-								<p class="text-gray-200 text-[14px]">7 clubs</p>
 
 							</div>
 
@@ -4498,10 +4518,12 @@
 
 			</div>
 
-			<div class="w-[20%] p-4 grid grid-flow-col grid-rows-5 gap-y-4">
+			<div class="w-[20%] p-4">
+
+				<div class="mb-4 px-2 py-1 border border-gray-300/25 text-white text-[12px] hover:bg-white/10 cursor-pointer transition-all text-right">Fermer cette fenêtre</div>
 
 				<!-- NOTIFICATION - MESSAGE DE José Mourinho - PETIT -->
-				<div class="bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
+				<div class="mb-3 bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
 
 					<div class="p-4 w-full flex items-start justify-between">
 
@@ -4522,7 +4544,7 @@
 				</div>
 
 				<!-- NOTIFICATION - MESSAGE DE Nasser al-Khelaïfi - PETIT -->
-				<div class="bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
+				<div class="mb-3 bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
 
 					<div class="p-4 w-full flex items-start justify-between">
 
@@ -4543,7 +4565,7 @@
 				</div>
 
 				<!-- NOTIFICATION - MESSAGE DE Didier Deschamps - PETIT -->
-				<div class="bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
+				<div class="mb-3 bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
 
 					<div class="p-4 w-full flex items-start justify-between">
 
@@ -4564,7 +4586,7 @@
 				</div>
 
 				<!-- NOTIFICATION - MESSAGE DE Lionel Messi - PETIT -->
-				<div class="bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
+				<div class="mb-3 bg-[#1E2129] w-full border-t-[6px] border-t-blue-500 border border-gray-300/25 hover:cursor-pointer hover:bg-white/10 transition-all">
 
 					<div class="p-4 w-full flex items-start justify-between">
 
