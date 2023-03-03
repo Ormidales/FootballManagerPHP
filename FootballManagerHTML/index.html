@@ -19,7 +19,7 @@
   </head>
   <body class="bg-gray-800">
     <div class="h-full flex flex-col justify-center items-center overflow-hidden">
-      <h1 class="text-white text-4xl font-bold text-center">Pro Football Manager <span class="ml-2 px-3 py-1 rounded-md bg-green-500/25 text-green-300 text-lg">v0.0.1a</span></h1>
+      <h1 class="text-white text-4xl font-bold text-center">Pro Football Manager <span class="ml-2 px-3 py-1 rounded-md bg-green-600/25 text-green-300 text-lg">v0.0.1a</span></h1>
       <p class="text-gray-200 mt-4 text-xl text-center">Bienvenue dans le monde de la gestion de football !</p>
       <p class="text-gray-200 text-xl text-center">Créez votre équipe, entraînez vos joueurs, planifiez vos matchs et devenez champion !</p>
       <div class="mt-8 flex flex-col items-center">
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="absolute top-8 right-8 w-64 bg-white rounded-lg overflow-hidden shadow-md transform scale-110 rotate-6 translate-x-[-50px] translate-y-[55px]">
+    <div class="absolute top-8 right-8 w-64 bg-white rounded-lg overflow-hidden shadow-md transform scale-[85%] rotate-6 translate-x-[-50px] translate-y-[55px]">
       <div class="px-4 py-3 border-b border-gray-200">
         <h3 class="text-lg font-semibold text-gray-800">Kylian Mbappé</h3>
         <p class="text-sm font-medium text-gray-500">Attaquant</p>
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="absolute top-8 right-16 w-64 bg-white rounded-lg overflow-hidden shadow-md transform scale-110 -rotate-12 translate-x-[-255px] translate-y-[25px]">
+    <div class="absolute top-8 right-16 w-64 bg-white rounded-lg overflow-hidden shadow-md transform scale-[95%] -rotate-12 translate-x-[-255px] translate-y-[25px]">
       <div class="px-4 py-3 border-b border-gray-200">
         <h3 class="text-lg font-semibold text-gray-800">Olivier Giroud</h3>
         <p class="text-sm font-medium text-gray-500">Attaquant</p>
@@ -72,6 +72,81 @@
         <button class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-full w-full">Acheter</button>
       </div>
     </div>
+
+    <div class="absolute top-8 left-8 w-96 bg-white rounded-lg overflow-hidden shadow-md transform scale-[95%] -rotate-6 translate-x-[23px] translate-y-[25px]">
+      <div class="px-4 py-3 border-b border-gray-200">
+        <h3 class="text-lg font-semibold text-gray-800">Offre pour le joueur : Olivier Giroud</h3>
+        <p class="text-sm font-medium text-gray-500">De : José Mourinho</p>
+      </div>
+      <div class="px-4 py-3 border-b border-gray-200">
+        <p class="text-sm font-medium text-gray-500">Prix proposé : $8M</p>
+        <p class="text-sm font-medium text-gray-500">Club de l'entraîneur : Real Madrid</p>
+        <p class="text-sm font-medium text-gray-500">Message : "Bonjour, je suis intéressé par le joueur Olivier Giroud et je vous propose une offre de 8 millions de dollars. Seriez-vous prêt à vendre ?"</p>
+      </div>
+      <div class="px-4 py-3">
+        <button class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-full mr-2">Accepter l'offre</button>
+        <button class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-full">Rejeter l'offre</button>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-8 bg-white rounded-lg overflow-hidden shadow-md">
+      <div class="px-4 py-3 border-b border-gray-200">
+        <h3 class="text-lg font-semibold text-gray-800">Ligue de football</h3>
+        <p class="text-sm font-medium text-gray-500">Nombre de clubs : 10</p>
+      </div>
+      <div class="px-4 py-3 border-b border-gray-200">
+        <ul class="divide-y divide-gray-200">
+          <li class="py-3 flex items-center justify-between">
+            <div class="flex items-center">
+              <span class="text-gray-500 font-medium">Club A</span>
+              <span class="ml-2 text-sm font-medium text-gray-500">(5 victoires, 2 défaites, 3 matchs nuls, 1 trophée)</span>
+            </div>
+            <span class="text-green-500 font-medium">+5</span>
+          </li>
+          <li class="py-3 flex items-center justify-between">
+            <div class="flex items-center">
+              <span class="text-gray-500 font-medium">Club B</span>
+              <span class="ml-2 text-sm font-medium text-gray-500">(4 victoires, 3 défaites, 3 matchs nuls, 0 trophée)</span>
+            </div>
+            <span class="text-red-500 font-medium">-3</span>
+          </li>
+          <li class="py-3 flex items-center justify-between">
+            <div class="flex items-center">
+              <span class="text-gray-500 font-medium">Club C</span>
+              <span class="ml-2 text-sm font-medium text-gray-500">(2 victoires, 6 défaites, 2 matchs nuls, 0 trophée)</span>
+            </div>
+            <span class="text-gray-500 font-medium">0</span>
+          </li>
+          <!-- Ajoutez autant de clubs que vous le souhaitez -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 right-8 bg-white rounded-lg overflow-hidden shadow-md">
+      <div class="px-4 py-3 border-b border-gray-200">
+        <h3 class="text-lg font-semibold text-gray-800">Olivier Giroud</h3>
+        <p class="text-sm font-medium text-gray-500">Club actuel : AC Milan</p>
+      </div>
+      <div class="px-4 py-3 border-b border-gray-200">
+        <div class="flex items-center">
+          <span class="text-gray-500 font-medium">Poste :</span>
+          <span class="ml-2 text-sm font-medium text-gray-500">Attaquant</span>
+        </div>
+        <div class="flex items-start mt-3">
+          <span class="text-gray-500 font-medium">Parcours professionnel :</span>
+          <ul class="ml-2 text-sm font-medium text-gray-500">
+            <li>Club B (2018-2020)</li>
+            <li>Club C (2020-2021)</li>
+            <li>Club A (2021-actuel)</li>
+          </ul>
+        </div>
+        <div class="flex items-center mt-3">
+          <span class="text-gray-500 font-medium">Trophées :</span>
+          <span class="ml-2 text-sm font-medium text-gray-500">3</span>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
 
