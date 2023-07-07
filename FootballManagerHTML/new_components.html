@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FootballManagerHTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: Lato, sans-serif;">
+
+<section class="w-full bg-zinc-900">
+
+    <div class="relative w-full py-36 flex items-center justify-center gap-6 flex-wrap border border-zinc-500">
+
+        <div class="absolute top-6 left-6 text-[25px] text-white">OFFRE DE TRANSFERT</div>
+
+        <div class="w-[40vh] bg-zinc-700 border-t-[6px] border-t-green-500 border border-zinc-500 rounded-sm">
+            <div class="px-3 py-2 border-b border-zinc-500">
+                <div class="w-full flex items-center gap-2 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                    <p class="text-[15px]">Offre de transfert d'un joueur</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[14px]">Envoyé par José Mourinho / AS Roma</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[12px]">Reçu le 07/07/2023</p>
+                </div>
+            </div>
+            <div class="px-3 pt-2 pb-3 border-b border-zinc-500">
+                <div class="w-full">
+                    <p class="text-white text-[14px]">Bonjour, je suis intéressé par votre joueur <span class="font-bold hover:underline cursor-pointer">Olivier Giroud</span> et je vous propose une offre de <span class="font-bold">8 000 000 d'euros</span>. Seriez-vous prêt à vendre ?</p>
+                </div>
+                <div class="w-full mt-1">
+                    <p class="text-gray-300 text-[12px]">Votre choix affectera votre relation avec le club AS Roma, l'entraineur José Mourinho ainsi que le joueur Olivier Giroud.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-green-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Négocier</p>
+                </div>
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-red-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <p class="text-[14px]">Refuser</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-[40vh] bg-zinc-700 border-t-[6px] border-t-green-500 border border-zinc-500 rounded-sm">
+            <div class="px-3 py-2 border-b border-zinc-500">
+                <div class="w-full flex items-center gap-2 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                    <p class="text-[15px]">Offre de transfert d'un joueur</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[14px]">Envoyé par Zinedine Zidane / Real Madrid</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[12px]">Reçu le 07/07/2023</p>
+                </div>
+            </div>
+            <div class="px-3 pt-2 pb-3 border-b border-zinc-500">
+                <div class="w-full">
+                    <p class="text-white text-[14px]">Bonjour, je suis intéressé par votre joueur <span class="font-bold hover:underline cursor-pointer">Olivier Giroud</span> et je vous propose une offre de <span class="font-bold">16 000 000 d'euros</span>. Seriez-vous prêt à vendre ?</p>
+                </div>
+                <div class="w-full mt-1">
+                    <p class="text-gray-300 text-[12px]">Votre choix affectera votre relation avec le club Real Madrid, l'entraineur Zinedine Zidane ainsi que le joueur Olivier Giroud.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-green-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Négocier</p>
+                </div>
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-red-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <p class="text-[14px]">Refuser</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="relative w-full py-36 flex items-center justify-center gap-6 flex-wrap border border-zinc-500">
+
+        <div class="absolute top-6 left-6 text-[25px] text-white">OFFRE DE PRÊT</div>
+
+        <div class="w-[40vh] bg-zinc-700 border-t-[6px] border-t-blue-500 border border-zinc-500 rounded-sm">
+            <div class="px-3 py-2 border-b border-zinc-500">
+                <div class="w-full flex items-center gap-2 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                    <p class="text-[15px]">Offre de prêt pour un joueur</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[14px]">Envoyé par José Mourinho / AS Roma</p>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-300 text-[12px]">Reçu le 07/07/2023</p>
+                </div>
+            </div>
+            <div class="px-3 pt-2 pb-3 border-b border-zinc-500">
+                <div class="w-full">
+                    <p class="text-white text-[14px]">Bonjour, je suis intéressé par votre joueur <span class="font-bold hover:underline cursor-pointer">Olivier Giroud</span> et je vous propose une offre de prêt de 2 ans dans mon club avec une prise en charge du salaire comme ceci :</p>
+                    <p class="text-white text-[14px]">AS Roma 40% / VOTRECLUB 60%</p>
+                </div>
+                <div class="w-full mt-1">
+                    <p class="text-gray-300 text-[12px]">Votre choix affectera votre relation avec le club AS Roma, l'entraineur José Mourinho ainsi que le joueur Olivier Giroud.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-blue-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Négocier</p>
+                </div>
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-red-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <p class="text-[14px]">Refuser</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="relative w-full py-36 flex items-center justify-center gap-6 flex-wrap border border-zinc-500">
+
+        <div class="absolute top-6 left-6 text-[25px] text-white">CARTE FOOTBALLEUR</div>
+
+        <div class="w-[80vh] bg-zinc-700 border-t-[6px] border-t-green-500 border border-zinc-500 rounded-sm">
+            <div class="max-h-[50vh] overflow-auto grid grid-cols-2">
+                <div class="w-full pb-2 border-r border-zinc-500">
+                    <div class="px-3 py-2">
+                        <p class="text-white text-[25px]">Olivier Giroud</p>
+                        <p class="text-gray-300 text-[12px]">Rôle dans l'équipe : Attaquant / Avant-centre</p>
+                        <p class="text-gray-300 text-[12px]">Équipe actuelle : Real Madrid</p>
+                    </div>
+                    <div class="border-t border-zinc-500 px-3 py-2">
+                        <p class="text-green-500 text-[25px]">86<span class="text-white text-[12px] ml-2">Note Générale</span></p>
+                        <p class="text-white text-[18px]">16 000 000 €<span class="text-green-500 text-[12px] ml-2">+15% depuis la dernière saison</span></p>
+                        <p class="text-white text-[14px]">Condition physique : <span class="text-green-500 text-[12px] ml-2">Très Bonne</span></p>
+                        <p class="text-white text-[14px]">Condition morale : <span class="text-green-500 text-[12px] ml-2">Très Bonne</span></p>
+                    </div>
+                    <div class="border-t border-zinc-500 px-3 py-2 grid grid-cols-1 gap-1">
+                        <div class="w-full">
+                            <p class="text-gray-300 text-[12px]">Vitesse</p>
+                            <div class="w-full p-0.5 border border-zinc-500 rounded-full"><div class="w-[60%] p-0.5 bg-yellow-500 rounded-full"></div></div>
+                        </div>
+                        <div class="w-full">
+                            <p class="text-gray-300 text-[12px]">Passes</p>
+                            <div class="w-full p-0.5 border border-zinc-500 rounded-full"><div class="w-[92%] p-0.5 bg-green-500 rounded-full"></div></div>
+                        </div>
+                        <div class="w-full">
+                            <p class="text-gray-300 text-[12px]">Tirs</p>
+                            <div class="w-full p-0.5 border border-zinc-500 rounded-full"><div class="w-[96%] p-0.5 bg-green-500 rounded-full"></div></div>
+                        </div>
+                        <div class="w-full">
+                            <p class="text-gray-300 text-[12px]">Tacles</p>
+                            <div class="w-full p-0.5 border border-zinc-500 rounded-full"><div class="w-[56%] p-0.5 bg-yellow-500 rounded-full"></div></div>
+                        </div>
+                        <div class="w-full">
+                            <p class="text-gray-300 text-[12px]">Jeu de main</p>
+                            <div class="w-full p-0.5 border border-zinc-500 rounded-full"><div class="w-[16%] p-0.5 bg-red-500 rounded-full"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-3 py-2">
+                    <p class="text-white text-[15px] mb-2">Armoire à trophée</p>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-yellow-500/50 border border-yellow-300/50 text-white text-[13px]">Ballon d'or 2022</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-yellow-500/50 border border-yellow-300/50 text-white text-[13px]">Ballon d'or 2023</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-gradient-to-r from-black via-violet-500 to-cyan-500 border border-white text-white text-[13px]">Coupe du Monde 2018 - Vainqueur</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-gradient-to-r from-black via-violet-500 to-cyan-500 border border-white text-white text-[13px]">Coupe du Monde 2012 - 2ème place</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-blue-500 border border-blue-300 text-white text-[13px]">Ligue des Champions 2018 avec Chelsea</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-blue-500 border border-blue-300 text-white text-[13px]">Ligue des Champions 2019 avec Chelsea</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-blue-500 border border-blue-300 text-white text-[13px]">Ligue des Champions 2022 avec Real Madrid</div>
+                        <div class="w-full flex items-center justify-between px-2 py-0.5 bg-blue-500 border border-blue-300 text-white text-[13px]">Ligue des Champions 2023 avec Real Madrid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 border-t border-zinc-500">
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-zinc-700 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Fermer la page</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
