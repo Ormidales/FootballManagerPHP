@@ -473,6 +473,33 @@
 
     </div>
 
+    <div class="relative w-full py-36 flex items-center justify-center gap-6 flex-wrap border border-zinc-500">
+
+        <div class="absolute top-6 left-6 text-[25px] text-white">GÉNÉRATEUR DE PERSONNAGE</div>
+
+        <div class="w-[90vh] bg-zinc-700 border-t-[6px] border-t-blue-500 border border-zinc-500 rounded-sm">
+            <div class="px-3 py-2 border-b border-zinc-500">
+                <div class="w-full flex items-center text-white">
+                    <p class="text-[15px]">Générateur de personnage</p>
+                </div>
+            </div>
+            <div class="px-3 p-3 border-b border-zinc-500">
+                <div class="w-full block text-[11px] max-h-[60vh] overflow-y-auto">
+                    <div id="characterList"></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1">
+                <div id="btnGenerationPersonnage" onclick="generateCharacters()" class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-blue-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Générer plusieurs personnage</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </section>
 
 <script>
@@ -551,6 +578,104 @@
         const cardId = card.getAttribute('data-id');
         activerOnglets(cardId);
     });
+
+    function generateCharacters() {
+        var characterList = document.getElementById("characterList");
+
+        // Nombre de personnages à générer
+        var numCharacters = 30;
+
+        // Tableaux de noms, prénoms et âges
+        var names = ["Mohammed", "Ethan", "Mateo", "Noah", "Liam", "Luca", "Gabriel", "Alexander", "Felix", "Hiroshi", "Ismail", "Aiden", "Ali", "Mathias", "David", "Youssef", "Seung", "Jan", "Dimitri", "Miguel", "Ahmed", "Henrik", "Thiago", "Finn", "Ibrahim", "Valentin", "Andrei", "Kamil", "Javier", "Benjamin",
+            "Oliver", "William", "James", "Henry", "Daniel", "Samuel", "Joseph", "Leo", "Oscar", "Sebastian", "Max", "Elijah", "Adam", "Antonio", "Hugo", "Isaac", "Elijah", "Giovanni", "Raphael", "Kai", "Caleb", "Emmanuel", "Victor", "Santiago", "Xavier", "Elias", "Lucas", "Christopher", "Daniel", "Alexandre"];
+        var lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan",
+            "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long"];
+        var minAge = 16;
+        var maxAge = 40; // 40 ans max pour la génération, les joueurs doivent partir à la retraite avant 45 ans ce qui donne 5 saisons de plus à la personne achetant un joueur a 40 ans
+        var minNoteGenerale = 40;
+        var maxNoteGenerale = 100;
+        var minCompetence = 0;
+        var maxCompetence = 5;
+
+        // Générer les personnages aléatoirement
+        for (var i = 0; i < numCharacters; i++) {
+            var name = names[Math.floor(Math.random() * names.length)];
+            var lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            var age = Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge;
+            var noteGenerale = Math.floor(Math.random() * (maxNoteGenerale - minNoteGenerale + 1)) + minNoteGenerale;
+            var competence = Math.floor(Math.random() * (maxCompetence - minCompetence + 1)) + minCompetence;
+            var marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale);
+
+            var characterId = generateUniqueId(); // Générer un ID unique pour chaque personnage
+
+            var character = document.createElement("div");
+            character.innerHTML = "<div class='block p-2'><div class='w-full flex items-center justify-between'><p>" + name + " " + lastName + ", " + age + " ans, " + noteGenerale + " de général, " + competence + " de compétence </p></div><div class='w-full flex items-center justify-between'><p>"+ marketValue.toLocaleString() + " € de marketvalue, " + (marketValue*2).toLocaleString() + " € de marketvalue réel</p><p>"+ characterId + "</p></div></div>";
+            character.className = "character-row character-row-" + i; // Ajouter une classe unique
+            character.id = characterId; // Ajouter un ID unique
+
+            characterList.appendChild(character);
+        }
+
+        // Appliquer des couleurs différentes aux lignes et ajuster la couleur du texte
+        var rows = document.getElementsByClassName("character-row");
+        for (var j = 0; j < rows.length; j++) {
+            var backgroundColor = getRandomColor(); // Obtenir une couleur de fond aléatoire
+            rows[j].style.backgroundColor = backgroundColor; // Appliquer la couleur de fond
+
+            // Vérifier si la couleur de fond est trop sombre
+            var textColor = isColorTooDark(backgroundColor) ? "#ffffff" : "#000000";
+            rows[j].style.color = textColor; // Appliquer la couleur du texte
+        }
+    }
+
+    // Fonction pour générer une couleur aléatoire en format hexadécimal
+    function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Fonction pour vérifier si une couleur est trop sombre
+    function isColorTooDark(color) {
+        var hex = color.substring(1); // Supprimer le symbole #
+        var r = parseInt(hex.substring(0, 2), 16);
+        var g = parseInt(hex.substring(2, 4), 16);
+        var b = parseInt(hex.substring(4, 6), 16);
+
+        // Calculer la luminosité relative de la couleur
+        var brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+        // Vérifier si la luminosité est en dessous d'un seuil
+        return brightness < 128;
+    }
+
+    // Fonction pour générer un ID unique
+    function generateUniqueId() {
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var length = 30;
+        var uniqueId = "";
+        for (var i = 0; i < length; i++) {
+            uniqueId += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return uniqueId;
+    }
+
+    // Fonction pour calculer la valeur de marché d'un joueur
+    function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale) {
+        // Facteurs influant sur la valeur de marché
+        var baseValue = 50000; // Valeur de base
+        var ageFactor = 1.25; // Facteur d'âge
+        var noteFactor = 1.25; // Facteur de la note générale
+
+        // Calculer la valeur de marché en fonction de l'âge et de la note générale
+        var marketValue = baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+
+        // Formater la valeur de marché avec des espaces pour les milliers
+        return marketValue;
+    }
 </script>
 
 </body>
