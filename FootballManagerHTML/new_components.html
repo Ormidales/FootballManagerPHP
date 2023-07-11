@@ -338,9 +338,10 @@
                         <a href="#" class="group">
                             <div class="w-full p-2 bg-zinc-600 border border-zinc-500">
                                 <div class="flex items-center justify-between">
-                                    <p class="text-white text-[13px]">Real Madrid</p>
+                                    <p class="text-white text-[13px]">De : Olympique de Marseille</p>
                                     <p class="text-white text-[13px]">Transfert</p>
                                 </div>
+                                <p class="text-white text-[13px]">Vers : Real Madrid</p>
                                 <p class="text-white text-[18px]">16 000 000 €</p>
                                 <p class="text-green-500 text-[11px]">Transfert accepté <span class="text-white ml-1">le 10/07/2023</span></p>
                             </div>
@@ -348,9 +349,10 @@
                         <a href="#" class="group">
                             <div class="w-full p-2 bg-zinc-600 border border-zinc-500">
                                 <div class="flex items-center justify-between">
-                                    <p class="text-white text-[13px]">Atletico Madrid</p>
+                                    <p class="text-white text-[13px]">De : Olympique de Marseille</p>
                                     <p class="text-white text-[13px]">Transfert</p>
                                 </div>
+                                <p class="text-white text-[13px]">Vers : Atletico Madrid</p>
                                 <p class="text-white text-[18px]">8 000 000 €</p>
                                 <p class="text-red-500 text-[11px]">Transfert refusé <span class="text-white ml-1">le 10/07/2023</span></p>
                             </div>
@@ -358,9 +360,10 @@
                         <a href="#" class="group">
                             <div class="w-full p-2 bg-zinc-600 border border-zinc-500">
                                 <div class="flex items-center justify-between">
-                                    <p class="text-white text-[13px]">AS Roma</p>
+                                    <p class="text-white text-[13px]">De : Olympique de Marseille</p>
                                     <p class="text-white text-[13px]">Transfert</p>
                                 </div>
+                                <p class="text-white text-[13px]">Vers : AS Roma</p>
                                 <p class="text-white text-[18px]">8 000 000 €</p>
                                 <p class="text-red-500 text-[11px]">Transfert refusé <span class="text-white ml-1">le 10/07/2023</span></p>
                             </div>
@@ -583,14 +586,14 @@
         const characterList = document.getElementById("characterList");
 
         // Nombre de personnages à générer
-        const numCharacters = 30;
+        const numCharacters = 50;
 
         // Tableaux de noms, prénoms et âges
         const names = ["Mohammed", "Walter", "Ethan", "Mateo", "Noah", "Liam", "Luca", "Gabriel", "Alexander", "Gustavo", "Felix", "Hiroshi", "Ismail", "Aiden", "Ali", "Mathias", "David", "Youssef", "Seung", "Jan", "Dimitri", "Miguel", "Ahmed", "Henrik", "Thiago", "Finn", "Ibrahim", "Valentin", "Andrei", "Kamil", "Javier", "Benjamin", "Oliver", "William", "James", "Henry", "Daniel", "Samuel", "Joseph", "Leo", "Oscar", "Sebastian", "Max", "Elijah", "Adam", "Antonio", "Hugo", "Isaac", "Elijah", "Giovanni", "Raphael", "Kai", "Caleb", "Emmanuel", "Victor", "Santiago", "Xavier", "Elias", "Lucas", "Christopher", "Daniel", "Alexandre", "Ethan", "Noah", "Liam", "Lucas", "Benjamin", "Alexander", "Samuel", "Gabriel", "Joseph", "Mathias", "Adam", "Leo", "Isaac", "Victor", "Raphael", "Xavier", "Sebastian", "Caleb", "David", "Todd", "Maxime", "Nicolas", "Thomas", "Antoine", "Hugo", "Nathan", "Olivier", "Justin", "Louis", "Vincent", "Pierre"];
         const lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Makarov", "Freeman", "Fring", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan", "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long", "Anderson", "Clark", "Evans", "Gonzalez", "Hall", "Johnson", "Kelly", "Lewis", "Mitchell", "Nelson", "Parker", "Ramirez", "Roberts", "Sanders", "Turner", "White", "Young", "Adams", "Baker", "Carter", "Davis", "Edwards", "Foster", "Gray", "Hayes", "Jackson", "King", "Morgan", "Price", "Stewart"];
         const postes = ["Gardien de but", "Arrière latéral", "Piston", "Défenseur central", "Libéro", "Milieu central", "Milieu latéral", "Milieu défensif", "Milieu offensif", "Avant-centre", "Attaquant de soutien", "Ailier", "Buteur"]
         const minAge = 16; // 16 ans min pour la génération, en dessous de ça les joueurs ne peuvent pas jouer légalement en pro
-        const maxAge = 40; // 40 ans max pour la génération, les joueurs doivent partir à la retraite avant 45 ans ce qui donne 5 saisons de plus à la personne achetant un joueur a 40 ans
+        const maxAge = 50; // 40 ans max pour la génération, les joueurs doivent partir à la retraite avant 45 ans ce qui donne 5 saisons de plus à la personne achetant un joueur a 40 ans
         const minNoteGenerale = 40; // 40 de général min pour la génération, en dessous les joueurs sont soit trop nuls, soit à la retraite
         const maxNoteGenerale = 100; // 100 de général max pour la génération, même si on peut aller à 110 max via plusieurs solutions in game
         const minCompetence = 0; // nombre de compétences que le joueur possède, elles seront affichées dans la table footballeur_competences
@@ -604,12 +607,12 @@
             const age = Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge;
             const noteGenerale = Math.floor(Math.random() * (maxNoteGenerale - minNoteGenerale + 1)) + minNoteGenerale;
             const competence = Math.floor(Math.random() * (maxCompetence - minCompetence + 1)) + minCompetence;
-            const marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale);
+            const marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale, poste);
 
             const characterId = generateUniqueId(name, lastName, age); // Générer un ID unique pour chaque personnage
 
             const character = document.createElement("div");
-            character.innerHTML = "<div class='block p-2'><div class='w-full flex items-center justify-between'><p>" + name + " " + lastName + ", " + poste + ", " + age + " ans, " + noteGenerale + " de général, " + competence + " de compétence </p></div><div class='w-full flex items-center justify-between'><p>"+ marketValue.toLocaleString() + " € de marketvalue, " + (marketValue*2.5).toLocaleString() + " € de marketvalue réel</p><p>" + characterId + "</p></div></div>";
+            character.innerHTML = "<div class='block p-2'><div class='w-full flex items-center justify-between'><p>" + name + " " + lastName + ", " + poste + ", " + age + " ans, " + noteGenerale + " de général, " + competence + " de compétence </p></div><div class='w-full flex items-center justify-between'><p>"+ marketValue.toLocaleString() + " € de marketvalue</p><p>" + characterId + "</p></div></div>";
             character.className = "character-row character-row-" + i; // Ajouter une classe unique
             character.id = characterId; // Ajouter un ID unique
 
@@ -664,109 +667,60 @@
     }
 
     // Fonction pour calculer la valeur de marché d'un joueur
-    function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale) {
-        // Facteurs influant sur la valeur de marché
+    function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale, poste) {
         const baseValue = Math.floor(Math.random() * (maxAge - age + 1)) + age;
+        let ageFactor, noteFactor;
 
-        // Si le joueur à moins de 20 ans alors
-        if (age <= 23) {
-            const ageFactor = 75; // Facteur d'âge
-            if (noteGenerale <= 70){
-                const noteFactor = 1; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 71 && noteGenerale <= 80){
-                const noteFactor = 25; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 81 && noteGenerale <= 89){
-                const noteFactor = 50; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 90){
-                const noteFactor = 75; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
+        // Déterminer le facteur d'âge en fonction de l'âge du joueur
+        if (age === 16) {
+            ageFactor = 75;
+        }else if (age === 17) {
+            ageFactor = 72;
+        } else if (age === 18) {
+            ageFactor = 70;
+        } else if (age === 19) {
+            ageFactor = 65;
+        } else if (age >= 20 && age <= 25) {
+            ageFactor = 60;
+        } else if (age >= 26 && age <= 30) {
+            ageFactor = 50;
+        } else if (age >= 31 && age <= 35) {
+            ageFactor = 40;
+        } else if (age >= 36 && age <= 40) {
+            ageFactor = 25;
+        }else {
+            ageFactor = 1;
         }
 
-        // Si le joueur à entre 20 et 30 ans alors
-        else if (age >= 24 && age <= 30) {
-            const ageFactor = 25; // Facteur d'âge
-            if (noteGenerale <= 70){
-                const noteFactor = 1; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 71 && noteGenerale <= 80){
-                const noteFactor = 25; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 81 && noteGenerale <= 89){
-                const noteFactor = 50; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 90){
-                const noteFactor = 75; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
+        // Déterminer le facteur de note en fonction de la note générale du joueur
+        if (noteGenerale <= 50) {
+            noteFactor = 1;
+        } else if (noteGenerale >= 51 && noteGenerale <= 60){
+            noteFactor = 10;
+        } else if (noteGenerale >= 61 && noteGenerale <= 65){
+            noteFactor = 15;
+        } else if (noteGenerale >= 66 && noteGenerale <= 70){
+            noteFactor = 20;
+        } else if (noteGenerale >= 71 && noteGenerale <= 75){
+            noteFactor = 25;
+        } else if (noteGenerale >= 76 && noteGenerale <= 80){
+            noteFactor = 35;
+        } else if (noteGenerale >= 81 && noteGenerale <= 85){
+            noteFactor = 40;
+        } else if (noteGenerale >= 86 && noteGenerale <= 90){
+            noteFactor = 50;
+        } else if (noteGenerale >= 91 && noteGenerale <= 95){
+            noteFactor = 60;
+        } else if (noteGenerale >= 96){
+            noteFactor = 75;
         }
 
-        // Si le joueur à entre 31 ans et 40 ans alors
-        else if (age >= 31 && age <= 40) {
-            const ageFactor = 10; // Facteur d'âge
-            if (noteGenerale <= 70){
-                const noteFactor = 1; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 71 && noteGenerale <= 80){
-                const noteFactor = 25; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 81 && noteGenerale <= 89){
-                const noteFactor = 50; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 90){
-                const noteFactor = 75; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
+        // Calculer la valeur de marché en utilisant les facteurs d'âge et de note
+        let result = baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+        if (result <= 10000){
+            result = 10000;
         }
-
-        // Si le joueur est trop jeune ou trop vieux alors
-        else {
-            const ageFactor = 1; // Facteur d'âge
-            if (noteGenerale <= 70){
-                const noteFactor = 1; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 71 && noteGenerale <= 80){
-                const noteFactor = 25; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 81 && noteGenerale <= 89){
-                const noteFactor = 50; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-            else if (noteGenerale >= 90){
-                const noteFactor = 75; // Facteur de la note générale
-                // Calculer la valeur de marché en fonction de l'âge et de la note générale
-                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
-            }
-        }
+        return result;
     }
 </script>
 
