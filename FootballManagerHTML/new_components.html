@@ -580,59 +580,59 @@
     });
 
     function generateCharacters() {
-        var characterList = document.getElementById("characterList");
+        const characterList = document.getElementById("characterList");
 
         // Nombre de personnages à générer
-        var numCharacters = 30;
+        const numCharacters = 30;
 
         // Tableaux de noms, prénoms et âges
-        var names = ["Mohammed", "Ethan", "Mateo", "Noah", "Liam", "Luca", "Gabriel", "Alexander", "Felix", "Hiroshi", "Ismail", "Aiden", "Ali", "Mathias", "David", "Youssef", "Seung", "Jan", "Dimitri", "Miguel", "Ahmed", "Henrik", "Thiago", "Finn", "Ibrahim", "Valentin", "Andrei", "Kamil", "Javier", "Benjamin",
-            "Oliver", "William", "James", "Henry", "Daniel", "Samuel", "Joseph", "Leo", "Oscar", "Sebastian", "Max", "Elijah", "Adam", "Antonio", "Hugo", "Isaac", "Elijah", "Giovanni", "Raphael", "Kai", "Caleb", "Emmanuel", "Victor", "Santiago", "Xavier", "Elias", "Lucas", "Christopher", "Daniel", "Alexandre"];
-        var lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan",
-            "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long"];
-        var minAge = 16;
-        var maxAge = 40; // 40 ans max pour la génération, les joueurs doivent partir à la retraite avant 45 ans ce qui donne 5 saisons de plus à la personne achetant un joueur a 40 ans
-        var minNoteGenerale = 40;
-        var maxNoteGenerale = 100;
-        var minCompetence = 0;
-        var maxCompetence = 5;
+        const names = ["Mohammed", "Walter", "Ethan", "Mateo", "Noah", "Liam", "Luca", "Gabriel", "Alexander", "Gustavo", "Felix", "Hiroshi", "Ismail", "Aiden", "Ali", "Mathias", "David", "Youssef", "Seung", "Jan", "Dimitri", "Miguel", "Ahmed", "Henrik", "Thiago", "Finn", "Ibrahim", "Valentin", "Andrei", "Kamil", "Javier", "Benjamin", "Oliver", "William", "James", "Henry", "Daniel", "Samuel", "Joseph", "Leo", "Oscar", "Sebastian", "Max", "Elijah", "Adam", "Antonio", "Hugo", "Isaac", "Elijah", "Giovanni", "Raphael", "Kai", "Caleb", "Emmanuel", "Victor", "Santiago", "Xavier", "Elias", "Lucas", "Christopher", "Daniel", "Alexandre", "Ethan", "Noah", "Liam", "Lucas", "Benjamin", "Alexander", "Samuel", "Gabriel", "Joseph", "Mathias", "Adam", "Leo", "Isaac", "Victor", "Raphael", "Xavier", "Sebastian", "Caleb", "David", "Todd", "Maxime", "Nicolas", "Thomas", "Antoine", "Hugo", "Nathan", "Olivier", "Justin", "Louis", "Vincent", "Pierre"];
+        const lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Makarov", "Freeman", "Fring", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan", "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long", "Anderson", "Clark", "Evans", "Gonzalez", "Hall", "Johnson", "Kelly", "Lewis", "Mitchell", "Nelson", "Parker", "Ramirez", "Roberts", "Sanders", "Turner", "White", "Young", "Adams", "Baker", "Carter", "Davis", "Edwards", "Foster", "Gray", "Hayes", "Jackson", "King", "Morgan", "Price", "Stewart"];
+        const postes = ["Gardien de but", "Arrière latéral", "Piston", "Défenseur central", "Libéro", "Milieu central", "Milieu latéral", "Milieu défensif", "Milieu offensif", "Avant-centre", "Attaquant de soutien", "Ailier", "Buteur"]
+        const minAge = 16; // 16 ans min pour la génération, en dessous de ça les joueurs ne peuvent pas jouer légalement en pro
+        const maxAge = 40; // 40 ans max pour la génération, les joueurs doivent partir à la retraite avant 45 ans ce qui donne 5 saisons de plus à la personne achetant un joueur a 40 ans
+        const minNoteGenerale = 40; // 40 de général min pour la génération, en dessous les joueurs sont soit trop nuls, soit à la retraite
+        const maxNoteGenerale = 100; // 100 de général max pour la génération, même si on peut aller à 110 max via plusieurs solutions in game
+        const minCompetence = 0; // nombre de compétences que le joueur possède, elles seront affichées dans la table footballeur_competences
+        const maxCompetence = 5; // nombre de compétences que le joueur possède, elles seront affichées dans la table footballeur_competences
 
         // Générer les personnages aléatoirement
-        for (var i = 0; i < numCharacters; i++) {
-            var name = names[Math.floor(Math.random() * names.length)];
-            var lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-            var age = Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge;
-            var noteGenerale = Math.floor(Math.random() * (maxNoteGenerale - minNoteGenerale + 1)) + minNoteGenerale;
-            var competence = Math.floor(Math.random() * (maxCompetence - minCompetence + 1)) + minCompetence;
-            var marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale);
+        for (let i = 0; i < numCharacters; i++) {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const poste = postes[Math.floor(Math.random() * postes.length)];
+            const age = Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge;
+            const noteGenerale = Math.floor(Math.random() * (maxNoteGenerale - minNoteGenerale + 1)) + minNoteGenerale;
+            const competence = Math.floor(Math.random() * (maxCompetence - minCompetence + 1)) + minCompetence;
+            const marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale);
 
-            var characterId = generateUniqueId(); // Générer un ID unique pour chaque personnage
+            const characterId = generateUniqueId(name, lastName, age); // Générer un ID unique pour chaque personnage
 
-            var character = document.createElement("div");
-            character.innerHTML = "<div class='block p-2'><div class='w-full flex items-center justify-between'><p>" + name + " " + lastName + ", " + age + " ans, " + noteGenerale + " de général, " + competence + " de compétence </p></div><div class='w-full flex items-center justify-between'><p>"+ marketValue.toLocaleString() + " € de marketvalue, " + (marketValue*2).toLocaleString() + " € de marketvalue réel</p><p>"+ characterId + "</p></div></div>";
+            const character = document.createElement("div");
+            character.innerHTML = "<div class='block p-2'><div class='w-full flex items-center justify-between'><p>" + name + " " + lastName + ", " + poste + ", " + age + " ans, " + noteGenerale + " de général, " + competence + " de compétence </p></div><div class='w-full flex items-center justify-between'><p>"+ marketValue.toLocaleString() + " € de marketvalue, " + (marketValue*2.5).toLocaleString() + " € de marketvalue réel</p><p>" + characterId + "</p></div></div>";
             character.className = "character-row character-row-" + i; // Ajouter une classe unique
             character.id = characterId; // Ajouter un ID unique
 
             characterList.appendChild(character);
+            console.log(character)
         }
 
         // Appliquer des couleurs différentes aux lignes et ajuster la couleur du texte
-        var rows = document.getElementsByClassName("character-row");
-        for (var j = 0; j < rows.length; j++) {
-            var backgroundColor = getRandomColor(); // Obtenir une couleur de fond aléatoire
+        const rows = document.getElementsByClassName("character-row");
+        for (let j = 0; j < rows.length; j++) {
+            const backgroundColor = getRandomColor(); // Obtenir une couleur de fond aléatoire
             rows[j].style.backgroundColor = backgroundColor; // Appliquer la couleur de fond
 
             // Vérifier si la couleur de fond est trop sombre
-            var textColor = isColorTooDark(backgroundColor) ? "#ffffff" : "#000000";
-            rows[j].style.color = textColor; // Appliquer la couleur du texte
+            rows[j].style.color = isColorTooDark(backgroundColor) ? "#ffffff" : "#000000"; // Appliquer la couleur du texte
         }
     }
 
     // Fonction pour générer une couleur aléatoire en format hexadécimal
     function getRandomColor() {
-        var letters = "0123456789ABCDEF";
-        var color = "#";
-        for (var i = 0; i < 6; i++) {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
@@ -640,41 +640,133 @@
 
     // Fonction pour vérifier si une couleur est trop sombre
     function isColorTooDark(color) {
-        var hex = color.substring(1); // Supprimer le symbole #
-        var r = parseInt(hex.substring(0, 2), 16);
-        var g = parseInt(hex.substring(2, 4), 16);
-        var b = parseInt(hex.substring(4, 6), 16);
+        const hex = color.substring(1); // Supprimer le symbole #
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
 
         // Calculer la luminosité relative de la couleur
-        var brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
         // Vérifier si la luminosité est en dessous d'un seuil
         return brightness < 128;
     }
 
     // Fonction pour générer un ID unique
-    function generateUniqueId() {
-        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        var length = 30;
-        var uniqueId = "";
-        for (var i = 0; i < length; i++) {
+    function generateUniqueId(name, lastName, age) {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const length = 20;
+        let uniqueId = "";
+        for (let i = 0; i < length; i++) {
             uniqueId += characters.charAt(Math.floor(Math.random() * characters.length));
         }
-        return uniqueId;
+        return name + lastName + age + "_" + uniqueId;
     }
 
     // Fonction pour calculer la valeur de marché d'un joueur
     function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale) {
         // Facteurs influant sur la valeur de marché
-        var baseValue = 50000; // Valeur de base
-        var ageFactor = 1.25; // Facteur d'âge
-        var noteFactor = 1.25; // Facteur de la note générale
+        const baseValue = Math.floor(Math.random() * (maxAge - age + 1)) + age;
 
-        // Calculer la valeur de marché en fonction de l'âge et de la note générale
-        var marketValue = baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+        // Si le joueur à moins de 20 ans alors
+        if (age <= 23) {
+            const ageFactor = 75; // Facteur d'âge
+            if (noteGenerale <= 70){
+                const noteFactor = 1; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 71 && noteGenerale <= 80){
+                const noteFactor = 25; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 81 && noteGenerale <= 89){
+                const noteFactor = 50; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 90){
+                const noteFactor = 75; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+        }
 
-        // Formater la valeur de marché avec des espaces pour les milliers
-        return marketValue;
+        // Si le joueur à entre 20 et 30 ans alors
+        else if (age >= 24 && age <= 30) {
+            const ageFactor = 25; // Facteur d'âge
+            if (noteGenerale <= 70){
+                const noteFactor = 1; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 71 && noteGenerale <= 80){
+                const noteFactor = 25; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 81 && noteGenerale <= 89){
+                const noteFactor = 50; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 90){
+                const noteFactor = 75; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+        }
+
+        // Si le joueur à entre 31 ans et 40 ans alors
+        else if (age >= 31 && age <= 40) {
+            const ageFactor = 10; // Facteur d'âge
+            if (noteGenerale <= 70){
+                const noteFactor = 1; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 71 && noteGenerale <= 80){
+                const noteFactor = 25; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 81 && noteGenerale <= 89){
+                const noteFactor = 50; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 90){
+                const noteFactor = 75; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+        }
+
+        // Si le joueur est trop jeune ou trop vieux alors
+        else {
+            const ageFactor = 1; // Facteur d'âge
+            if (noteGenerale <= 70){
+                const noteFactor = 1; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 71 && noteGenerale <= 80){
+                const noteFactor = 25; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 81 && noteGenerale <= 89){
+                const noteFactor = 50; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+            else if (noteGenerale >= 90){
+                const noteFactor = 75; // Facteur de la note générale
+                // Calculer la valeur de marché en fonction de l'âge et de la note générale
+                return baseValue * ((maxAge - age) * ageFactor + 1) * ((noteGenerale - minNoteGenerale) * noteFactor + 1);
+            }
+        }
     }
 </script>
 
