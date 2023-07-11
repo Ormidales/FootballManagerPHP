@@ -607,7 +607,7 @@
             const age = Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge;
             const noteGenerale = Math.floor(Math.random() * (maxNoteGenerale - minNoteGenerale + 1)) + minNoteGenerale;
             const competence = Math.floor(Math.random() * (maxCompetence - minCompetence + 1)) + minCompetence;
-            const marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale, poste);
+            const marketValue = calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale);
 
             const characterId = generateUniqueId(name, lastName, age); // Générer un ID unique pour chaque personnage
 
@@ -667,7 +667,7 @@
     }
 
     // Fonction pour calculer la valeur de marché d'un joueur
-    function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale, poste) {
+    function calculateMarketValue(age, noteGenerale, maxAge, minNoteGenerale) {
         const baseValue = Math.floor(Math.random() * (maxAge - age + 1)) + age;
         let ageFactor, noteFactor;
 
