@@ -641,6 +641,8 @@
             { range: [5, 5], percentage: 10 }
         ];
 
+        const characters = [];
+
         for (let i = 0; i < numCharacters; i++) {
             const name = names[Math.floor(Math.random() * names.length)];
             const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
@@ -652,21 +654,40 @@
 
             const characterId = generateUniqueId(name, lastName, age);
 
-            const character = document.createElement("div");
-            character.innerHTML = `<div class='block p-2'>
+            const character = {
+                name,
+                lastName,
+                poste,
+                age,
+                noteGenerale,
+                competence,
+                marketValue,
+                characterId
+            };
+
+            characters.push(character);
+        }
+
+        characters.sort((a, b) => b.marketValue - a.marketValue);
+
+        for (let i = 0; i < characters.length; i++) {
+            const character = characters[i];
+
+            const characterElement = document.createElement("div");
+            characterElement.innerHTML = `<div class='block p-2'>
               <div class='w-full flex items-center justify-between'>
-                <p>${name} ${lastName}, ${poste}, ${age} ans, ${noteGenerale} de général, ${competence} de compétence</p>
+                <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général, ${character.competence} de compétence</p>
               </div>
               <div class='w-full flex items-center justify-between'>
-                <p>${marketValue.toLocaleString()} € de valeur marchande</p>
-                <p>${characterId}</p>
+                <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
+                <p>${character.characterId}</p>
               </div>
             </div>`;
-            character.className = `character-row character-row-${i}`;
-            character.id = characterId;
+            characterElement.className = `character-row character-row-${i}`;
+            characterElement.id = character.characterId;
 
-            characterList.appendChild(character);
-            console.log(character);
+            characterList.appendChild(characterElement);
+            console.log(characterElement);
         }
 
         // Appliquer des couleurs différentes aux lignes et ajuster la couleur du texte
@@ -705,7 +726,7 @@
     // Fonction pour générer un ID unique
     function generateUniqueId(name, lastName, age) {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const length = 20;
+        const length = 35;
         let uniqueId = "";
         for (let i = 0; i < length; i++) {
             uniqueId += characters.charAt(Math.floor(Math.random() * characters.length));
