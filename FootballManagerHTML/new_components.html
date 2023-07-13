@@ -585,7 +585,46 @@
     function generateCharacters() {
         const characterList = document.getElementById("characterList");
         const numCharacters = 50;
-        const names = ["Mohammed", "Walter", "Ethan", "Mateo", "Noah", "Liam", "Luca", "Gabriel", "Alexander", "Gustavo", "Felix", "Hiroshi", "Ismail", "Aiden", "Ali", "Mathias", "David", "Youssef", "Seung", "Jan", "Dimitri", "Miguel", "Ahmed", "Henrik", "Thiago", "Finn", "Ibrahim", "Valentin", "Andrei", "Kamil", "Javier", "Benjamin", "Oliver", "William", "James", "Henry", "Daniel", "Samuel", "Joseph", "Leo", "Oscar", "Sebastian", "Max", "Elijah", "Adam", "Antonio", "Hugo", "Isaac", "Elijah", "Giovanni", "Raphael", "Kai", "Caleb", "Emmanuel", "Victor", "Santiago", "Xavier", "Elias", "Lucas", "Christopher", "Daniel", "Alexandre", "Ethan", "Noah", "Liam", "Lucas", "Benjamin", "Alexander", "Samuel", "Gabriel", "Joseph", "Mathias", "Adam", "Leo", "Isaac", "Victor", "Raphael", "Xavier", "Sebastian", "Caleb", "David", "Todd", "Maxime", "Nicolas", "Thomas", "Antoine", "Hugo", "Nathan", "Olivier", "Justin", "Louis", "Vincent", "Pierre"];
+        const names = [
+            "Habib", "Handi", "Hassène", "Henri", "Hicham", "Houssine",
+            "Hacen", "Hane", "Hatem", "Henrick", "Hichame", "Hovakim",
+            "Hacène", "Hani", "Hatim", "Henrik", "Hichem", "Hovannès",
+            "Hachim", "Hanicet", "Hébert", "Henriko", "Hilaire", "Howard",
+            "Hadi", "Hanko", "Heddy", "Henrique", "Hilaric", "Hubert",
+            "Hadj", "Hannes", "Hédelin", "Henry", "Hilario", "Hugbert",
+            "Hadrian", "Hannibal", "Hèdi", "Henryk", "Hilarion", "Hugh",
+            "Hadrien", "Hanot", "Hèdy", "Herald", "Hilel", "Hugo",
+            "Hady", "Hans", "Heifara", "Herb", "Hillel", "Hugolin",
+            "Hafez", "Hänsel", "Heimana", "Herbert", "Hipolito", "Hugues",
+            "Hafid", "Hanselo", "Heinrich", "Herbod", "Hippolyte", "Humbert",
+            "Haï", "Hansi", "Heifara", "Hercule", "Hiro", "Humberto",
+            "Haïg", "Hansko", "Heleazar", "Hercules", "Hoang", "Humphrey",
+            "Haïgag", "Harald", "Helian", "Heremoana", "Hoarii", "Huseyin",
+            "Haïkaram", "Haris", "Hélias", "Heribert", "Hocine", "Hussein",
+            "Haïkaz", "Harley", "Hélier", "Heriberto", "Hodei", "Huu",
+            "Haïm", "Harold", "Hélio", "Herlé", "Hoel", "Huy",
+            "Hakem", "Haron", "Héliodore", "Herman", "Homère", "Hyacinth",
+            "Hakim", "Haroun", "Héliodoro", "Hermann", "Hong", "Hyacinthe",
+            "Hal", "Harouna", "Hélios", "Hermelin", "Honorat",
+            "Halil", "Harris", "Helmes", "Hermès", "Honoré",
+            "Halim", "Harrison", "Helmi", "Hernando", "Honorin",
+            "Hamdi", "Harry", "Helmut", "Herold", "Honorus",
+            "Hamed", "Harun", "Helori", "Heroldus", "Horace",
+            "Hamid", "Harvey", "Hélory", "Herrando", "Horatio",
+            "Hamidou", "Hasan", "Hendrick", "Hervé", "Hosni",
+            "Hamilton", "Hassan", "Hendrik", "Hervey", "Hossein",
+            "Hampe", "Hassane", "Henne", "Hess", "Houarn",
+            "Hamza", "Hassen", "Henneke", "Hias", "Houcine",
+            "Desmond", "Dieudonné", "Dewi", "Dagobert",
+            "Diogène", "Dietrich", "Devy", "Donatien",
+            "Dino", "Dietmar", "Devrig", "Dylan",
+            "Dinh", "Dieter", "Daryl", "Diego",
+            "Dimitry", "Devon", "Denis", "Didier",
+            "Dimitri", "Devi", "Devin", "Dominique",
+            "Dick", "Deve", "Daniel", "Donovan",
+            "Dilane", "Dhani", "Dorian", "Derek",
+            "Dilan", "Dewitt", "Damien", "Dilhan"
+        ];
         const lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Makarov", "Freeman", "Fring", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan", "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long", "Anderson", "Clark", "Evans", "Gonzalez", "Hall", "Johnson", "Kelly", "Lewis", "Mitchell", "Nelson", "Parker", "Ramirez", "Roberts", "Sanders", "Turner", "White", "Young", "Adams", "Baker", "Carter", "Davis", "Edwards", "Foster", "Gray", "Hayes", "Jackson", "King", "Morgan", "Price", "Stewart"];
         const postes = [
             "Gardien de but",
@@ -735,35 +774,35 @@
     }
 
     function calculateMarketValue(age, noteGenerale, poste, competence) {
-        const baseValue = Math.floor(Math.random() * age);
+        const baseValue = Math.floor(Math.random() * age * 100);
         let ageFactor, noteFactor, posteFactor, competenceFactor;
 
         if (age === 16) {
-            ageFactor = 75;
+            ageFactor = 15;
         } else if (age >= 17 && age <= 20) {
-            ageFactor = 100;
-        } else if (age >= 21 && age <= 25) {
-            ageFactor = 75;
-        } else if (age >= 26 && age <= 30) {
-            ageFactor = 50;
-        } else if (age >= 31 && age <= 35) {
             ageFactor = 25;
-        } else if (age >= 36 && age <= 40) {
+        } else if (age >= 21 && age <= 25) {
+            ageFactor = 15;
+        } else if (age >= 26 && age <= 30) {
             ageFactor = 10;
-        } else {
+        } else if (age >= 31 && age <= 35) {
+            ageFactor = 5;
+        } else if (age >= 36 && age <= 40) {
             ageFactor = 2;
+        } else {
+            ageFactor = 1;
         }
 
         if (noteGenerale >= 40 && noteGenerale <= 60) {
-            noteFactor = 10;
-        } else if (noteGenerale >= 61 && noteGenerale <= 80) {
-            noteFactor = 25;
-        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
-            noteFactor = 75;
-        } else if (noteGenerale >= 91 && noteGenerale <= 100) {
-            noteFactor = 100;
-        } else {
             noteFactor = 2;
+        } else if (noteGenerale >= 61 && noteGenerale <= 80) {
+            noteFactor = 8;
+        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
+            noteFactor = 15;
+        } else if (noteGenerale >= 91 && noteGenerale <= 100) {
+            noteFactor = 25;
+        } else {
+            noteFactor = 1;
         }
 
         if (poste === "Gardien de but") {
@@ -773,19 +812,19 @@
         } else if (poste === "Milieu central" || poste === "Milieu latéral" || poste === "Milieu défensif" || poste === "Milieu offensif") {
             posteFactor = 10;
         } else if (poste === "Avant-centre" || poste === "Attaquant de soutien" || poste === "Ailier" || poste === "Buteur") {
-            posteFactor = 25;
+            posteFactor = 10;
         } else {
-            posteFactor = 50;
+            posteFactor = 25;
         }
 
         if (competence === 0) {
             competenceFactor = 1;
         } else if (competence >= 1 && competence <= 3) {
-            competenceFactor = 15;
+            competenceFactor = 5;
         } else if (competence === 4) {
-            competenceFactor = 50;
+            competenceFactor = 10;
         } else if (competence === 5) {
-            competenceFactor = 75;
+            competenceFactor = 25;
         } else {
             competenceFactor = 2;
         }
