@@ -906,8 +906,19 @@
 
     function generateCharacters() {
         const characterList = document.getElementById("characterList");
-        const numCharacters = 1000;
+        const numCharacters = 50;
         const names = [
+            // A
+            "Adrien", "Augustin", "Axel", "Amaury", "Arsene",
+            "Ayoub", "Alban", "Alexis", "Antoine", "Auguste", "Aaron",
+            "Antonin", "Armand", "Arthur", "Achille", "Adam", "Alexandre",
+            "Ali", "Abel", "Ahmed", "Alessio", "Anas", "Adem", "Amir",
+            "Amine", "Aylan", "Aymen", "Ayden", "Alex", "Adrian",
+            "Anthony", "Aurelien", "Alan", "Anatole", "Alois",
+            "Andy", "Adel", "Aboubacar", "Ariel", "Albert",
+            "Abdullah", "Amadou", "Adolphe", "Arthus", "Alberto",
+
+            // D
             "Desmond", "Dieudonné", "Dewi", "Dagobert",
             "Diogène", "Dietrich", "Devy", "Donatien",
             "Dino", "Dietmar", "Devrig", "Dylan",
@@ -917,6 +928,8 @@
             "Dick", "Deve", "Daniel", "Donovan",
             "Dilane", "Dhani", "Dorian", "Derek",
             "Dilan", "Dewitt", "Damien", "Dilhan",
+
+            // H
             "Habib", "Handi", "Hassène", "Henri", "Hicham", "Houssine",
             "Hacen", "Hane", "Hatem", "Henrick", "Hichame", "Hovakim",
             "Hacène", "Hani", "Hatim", "Henrik", "Hichem", "Hovannès",
@@ -998,13 +1011,17 @@
         for (let i = 0; i < numCharacters; i++) {
             const id = i;
             const name = names[Math.floor(Math.random() * names.length)];
-            const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            let lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const poste = postes[Math.floor(Math.random() * postes.length)];
             const noteGenerale = generateRandomByPercentage(noteRangePercentages, minNoteGenerale, maxNoteGenerale);
             const age = generateRandomByPercentage(ageRangePercentages, minAge, maxAge);
             const marketValue = calculateMarketValue(age, noteGenerale, poste);
 
             const characterId = generateUniqueId();
+
+            while (name === lastName){
+                lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            }
 
             const character = {
                 id,
@@ -1028,8 +1045,8 @@
             const characterElement = document.createElement("div");
             characterElement.innerHTML = `<div class='block p-2'>
               <div class='w-full flex items-center justify-between'>
-                <p>${character.id}</p>
                 <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
+                <p>${character.id}</p>
               </div>
               <div class='w-full flex items-center justify-between'>
                 <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
@@ -1078,7 +1095,7 @@
 
     // Fonction pour générer un ID unique
     function generateUniqueId() {
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+$%!§?\:";
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         const length = 50;
         let uniqueId = "";
         for (let i = 0; i < length; i++) {
@@ -1092,17 +1109,17 @@
         let ageFactor, noteFactor, posteFactor;
 
         if (age === 16) {
-            ageFactor = 50;
-        } else if (age >= 17 && age <= 20) {
-            ageFactor = 75;
-        } else if (age >= 21 && age <= 25) {
-            ageFactor = 50;
-        } else if (age >= 26 && age <= 30) {
             ageFactor = 25;
-        } else if (age >= 31 && age <= 35) {
+        } else if (age >= 17 && age <= 20) {
+            ageFactor = 50;
+        } else if (age >= 21 && age <= 25) {
+            ageFactor = 25;
+        } else if (age >= 26 && age <= 30) {
             ageFactor = 10;
-        } else if (age >= 36 && age <= 40) {
+        } else if (age >= 31 && age <= 35) {
             ageFactor = 5;
+        } else if (age >= 36 && age <= 40) {
+            ageFactor = 2;
         } else {
             ageFactor = 1;
         }
