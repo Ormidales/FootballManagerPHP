@@ -673,13 +673,6 @@
             { range: [41, 50], percentage: 10 }
         ];
 
-        const competenceRangePercentages = [
-            { range: [0, 0], percentage: 60 },
-            { range: [1, 2], percentage: 20 },
-            { range: [3, 4], percentage: 10 },
-            { range: [5, 5], percentage: 10 }
-        ];
-
         const characters = [];
 
         for (let i = 0; i < numCharacters; i++) {
@@ -688,8 +681,7 @@
             const poste = postes[Math.floor(Math.random() * postes.length)];
             const noteGenerale = generateRandomByPercentage(noteRangePercentages, minNoteGenerale, maxNoteGenerale);
             const age = generateRandomByPercentage(ageRangePercentages, minAge, maxAge);
-            const competence = generateRandomByPercentage(competenceRangePercentages, minCompetence, maxCompetence);
-            const marketValue = calculateMarketValue(age, noteGenerale, poste, competence);
+            const marketValue = calculateMarketValue(age, noteGenerale, poste);
 
             const characterId = generateUniqueId();
 
@@ -699,7 +691,6 @@
                 poste,
                 age,
                 noteGenerale,
-                competence,
                 marketValue,
                 characterId
             };
@@ -715,7 +706,7 @@
             const characterElement = document.createElement("div");
             characterElement.innerHTML = `<div class='block p-2'>
               <div class='w-full flex items-center justify-between'>
-                <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général, ${character.competence} de compétence</p>
+                <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
               </div>
               <div class='w-full flex items-center justify-between'>
                 <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
@@ -773,14 +764,14 @@
         return uniqueId;
     }
 
-    function calculateMarketValue(age, noteGenerale, poste, competence) {
+    function calculateMarketValue(age, noteGenerale, poste) {
         const baseValue = Math.floor(Math.random() * age * 100);
-        let ageFactor, noteFactor, posteFactor, competenceFactor;
+        let ageFactor, noteFactor, posteFactor;
 
         if (age === 16) {
             ageFactor = 75;
         } else if (age >= 17 && age <= 20) {
-            ageFactor = 60;
+            ageFactor = 100;
         } else if (age >= 21 && age <= 25) {
             ageFactor = 50;
         } else if (age >= 26 && age <= 30) {
@@ -794,49 +785,37 @@
         }
 
         if (noteGenerale >= 40 && noteGenerale <= 60) {
-            noteFactor = 2;
+            noteFactor = 5;
         } else if (noteGenerale >= 61 && noteGenerale <= 80) {
-            noteFactor = 8;
-        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
             noteFactor = 15;
-        } else if (noteGenerale >= 91 && noteGenerale <= 95) {
+        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
             noteFactor = 25;
+        } else if (noteGenerale >= 91 && noteGenerale <= 95) {
+            noteFactor = 50;
         } else if (noteGenerale >= 96 && noteGenerale <= 100) {
-            noteFactor = 75;
+            noteFactor = 100;
         } else {
             noteFactor = 1;
         }
 
         if (poste === "Gardien de but") {
-            posteFactor = 10;
+            posteFactor = 25;
         } else if (poste === "Défenseur central" || poste === "Arrière latéral" || poste === "Défenseur polyvalent") {
-            posteFactor = 10;
+            posteFactor = 25;
         } else if (poste === "Milieu central" || poste === "Milieu latéral" || poste === "Milieu défensif" || poste === "Milieu offensif") {
-            posteFactor = 10;
+            posteFactor = 25;
         } else if (poste === "Avant-centre" || poste === "Attaquant de soutien" || poste === "Ailier" || poste === "Buteur") {
-            posteFactor = 10;
+            posteFactor = 25;
         } else {
-            posteFactor = 20;
+            posteFactor = 25;
         }
 
-        if (competence === 0) {
-            competenceFactor = 1;
-        } else if (competence >= 1 && competence <= 3) {
-            competenceFactor = 1.5;
-        } else if (competence === 4) {
-            competenceFactor = 2;
-        } else if (competence === 5) {
-            competenceFactor = 2.5;
-        } else {
-            competenceFactor = 2;
-        }
-
-        let result = baseValue * ageFactor * noteFactor * posteFactor * competenceFactor;
+        let result = baseValue * ageFactor * noteFactor * posteFactor;
         if (result <= 10000) {
             result = 10000;
         }
         if(age >= 30){
-            result * 3;
+            result = result * 3;
         }
         return result;
     }
