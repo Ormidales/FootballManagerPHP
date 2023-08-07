@@ -906,7 +906,7 @@
 
     function generateCharacters() {
         const characterList = document.getElementById("characterList");
-        const numCharacters = 100;
+        const numCharacters = 1000;
         const names = [
             "Desmond", "Dieudonné", "Dewi", "Dagobert",
             "Diogène", "Dietrich", "Devy", "Donatien",
@@ -996,6 +996,7 @@
         const characters = [];
 
         for (let i = 0; i < numCharacters; i++) {
+            const id = i;
             const name = names[Math.floor(Math.random() * names.length)];
             const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const poste = postes[Math.floor(Math.random() * postes.length)];
@@ -1006,6 +1007,7 @@
             const characterId = generateUniqueId();
 
             const character = {
+                id,
                 name,
                 lastName,
                 poste,
@@ -1026,6 +1028,7 @@
             const characterElement = document.createElement("div");
             characterElement.innerHTML = `<div class='block p-2'>
               <div class='w-full flex items-center justify-between'>
+                <p>${character.id}</p>
                 <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
               </div>
               <div class='w-full flex items-center justify-between'>
@@ -1089,7 +1092,7 @@
         let ageFactor, noteFactor, posteFactor;
 
         if (age === 16) {
-            ageFactor = 100;
+            ageFactor = 50;
         } else if (age >= 17 && age <= 20) {
             ageFactor = 75;
         } else if (age >= 21 && age <= 25) {
