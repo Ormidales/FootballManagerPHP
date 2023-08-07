@@ -807,12 +807,18 @@
                     <div id="characterList"></div>
                 </div>
             </div>
-            <div class="grid grid-cols-1">
+            <div class="grid grid-cols-2">
                 <div id="btnGenerationPersonnage" onclick="generateCharacters()" class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-blue-500 hover:opacity-75 transition-all cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     <p class="text-[14px]">Générer plusieurs personnage</p>
+                </div>
+                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-green-500 hover:opacity-75 transition-all cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <p class="text-[14px]">Envoyer dans la base de données</p>
                 </div>
             </div>
         </div>
@@ -975,9 +981,9 @@
 
         const noteRangePercentages = [
             { range: [40, 60], percentage: 50 },
-            { range: [61, 80], percentage: 30 },
+            { range: [61, 80], percentage: 37.5 },
             { range: [81, 90], percentage: 10 },
-            { range: [91, 100], percentage: 10 }
+            { range: [91, 100], percentage: 2.5 }
         ];
 
         const ageRangePercentages = [
@@ -1024,7 +1030,7 @@
               </div>
               <div class='w-full flex items-center justify-between'>
                 <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
-                <p>${character.characterId}</p>
+                <p>${character.name.toLowerCase()}${character.lastName.toLowerCase()}_${character.characterId}</p>
               </div>
             </div>`;
             characterElement.className = `character-row character-row-${i}`;
@@ -1069,7 +1075,7 @@
 
     // Fonction pour générer un ID unique
     function generateUniqueId() {
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+$%!§?\:";
         const length = 50;
         let uniqueId = "";
         for (let i = 0; i < length; i++) {
@@ -1099,13 +1105,13 @@
         }
 
         if (noteGenerale >= 40 && noteGenerale <= 60) {
-            noteFactor = 5;
+            noteFactor = 10;
         } else if (noteGenerale >= 61 && noteGenerale <= 80) {
-            noteFactor = 15;
-        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
             noteFactor = 25;
-        } else if (noteGenerale >= 91 && noteGenerale <= 95) {
+        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
             noteFactor = 50;
+        } else if (noteGenerale >= 91 && noteGenerale <= 95) {
+            noteFactor = 75;
         } else if (noteGenerale >= 96 && noteGenerale <= 100) {
             noteFactor = 100;
         } else {
@@ -1127,9 +1133,6 @@
         let result = baseValue * ageFactor * noteFactor * posteFactor;
         if (result <= 10000) {
             result = 10000;
-        }
-        if(age >= 30){
-            result = result * 3;
         }
         return result;
     }
