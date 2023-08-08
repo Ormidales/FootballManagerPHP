@@ -801,8 +801,8 @@
                 <div class="w-full flex items-center justify-between">
                     <p class="text-[15px] text-white">Générateur de personnage</p>
                     <div class="flex items-center gap-2 text-white">
-                        <p class="text-[14px]">Trier par :</p>
-                        <select id="sortOption" onchange="sortCharacters()">
+                        <label for="sortOption" class="text-[14px]">Trier par :</label>
+                        <select id="sortOption" name="sortSelect" onchange="sortCharacters()">
                             <option value="id">ID</option>
                             <option value="name">Prénom</option>
                             <option value="marketValue">Prix</option>
@@ -1003,14 +1003,14 @@
         const noteRangePercentages = [
             { range: [40, 60], percentage: 60 },
             { range: [61, 80], percentage: 35 },
-            { range: [81, 90], percentage: 4 },
-            { range: [91, 100], percentage: 1 }
+            { range: [81, 90], percentage: 4.75 },
+            { range: [91, 100], percentage: 0.25 }
         ];
 
         const ageRangePercentages = [
-            { range: [16, 20], percentage: 50 },
-            { range: [21, 30], percentage: 30 },
-            { range: [31, 40], percentage: 10 },
+            { range: [16, 20], percentage: 40 },
+            { range: [21, 30], percentage: 25 },
+            { range: [31, 40], percentage: 25 },
             { range: [41, 50], percentage: 10 }
         ];
 
