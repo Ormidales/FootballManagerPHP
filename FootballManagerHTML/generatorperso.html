@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FootballManagerHTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: Lato, sans-serif;">
+
+<div class="relative w-full h-[100vh] flex items-center justify-center gap-6 flex-wrap bg-zinc-900">
+
+    <div class="absolute top-6 left-6 text-[25px] text-white">GÉNÉRATEUR DE PERSONNAGE</div>
+
+    <div class="w-[90vh] bg-zinc-700 border-t-[6px] border-t-blue-500 border border-zinc-500 rounded-sm">
+        <div class="px-3 py-2 bg-blue-500 border-b border-zinc-500">
+            <div class="w-full flex items-center justify-between">
+                <p class="text-[15px] text-white">Générateur de personnage</p>
+                <div class="flex items-center gap-2 text-white">
+                    <label for="sortOption" class="text-[14px]">Trier par :</label>
+                    <select id="sortOption" name="sortSelect" onchange="sortCharacters()">
+                        <option value="id">ID</option>
+                        <option value="name">Prénom</option>
+                        <option value="marketValue">Prix</option>
+                    </select>
+                    <input type="checkbox" id="sortOrder" onchange="sortCharacters()">
+                    <label for="sortOrder" class="text-[14px]">Ordre croissant</label>
+                </div>
+            </div>
+        </div>
+        <div class="px-3 p-3 border-b border-zinc-500">
+            <div class="w-full block text-[11px] max-h-[60vh] overflow-y-auto">
+                <div id="characterList"></div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1">
+            <div id="btnGenerationPersonnage" onclick="generateCharacters()" class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-blue-500 hover:opacity-75 transition-all cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <p class="text-[14px]">Générer plusieurs personnage</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    let lastCharacterId = 0;
+    const generatedCharacterIds = [];
+    const characters = [];
+    const colorCache = [];
+
+    function generateCharacters() {
+        const names = [
+            // A
+            "Adrien", "Augustin", "Axel", "Amaury", "Arsene",
+            "Ayoub", "Alban", "Alexis", "Antoine", "Auguste", "Aaron",
+            "Antonin", "Armand", "Arthur", "Achille", "Adam", "Alexandre",
+            "Ali", "Abel", "Ahmed", "Alessio", "Anas", "Adem", "Amir",
+            "Amine", "Aylan", "Aymen", "Ayden", "Alex", "Adrian",
+            "Anthony", "Aurelien", "Alan", "Anatole", "Alois",
+            "Andy", "Adel", "Aboubacar", "Ariel", "Albert",
+            "Abdullah", "Amadou", "Adolphe", "Arthus", "Alberto",
+
+            // D
+            "Desmond", "Dieudonné", "Dewi", "Dagobert",
+            "Diogène", "Dietrich", "Devy", "Donatien",
+            "Dino", "Dietmar", "Devrig", "Dylan",
+            "Dinh", "Dieter", "Daryl", "Diego",
+            "Dimitry", "Devon", "Denis", "Didier",
+            "Dimitri", "Devi", "Devin", "Dominique",
+            "Dick", "Deve", "Daniel", "Donovan",
+            "Dilane", "Dhani", "Dorian", "Derek",
+            "Dilan", "Dewitt", "Damien", "Dilhan",
+
+            // H
+            "Habib", "Handi", "Hassène", "Henri", "Hicham", "Houssine",
+            "Hacen", "Hane", "Hatem", "Henrick", "Hichame", "Hovakim",
+            "Hacène", "Hani", "Hatim", "Henrik", "Hichem", "Hovannès",
+            "Hachim", "Hanicet", "Hébert", "Henriko", "Hilaire", "Howard",
+            "Hadi", "Hanko", "Heddy", "Henrique", "Hilaric", "Hubert",
+            "Hadj", "Hannes", "Hédelin", "Henry", "Hilario", "Hugbert",
+            "Hadrian", "Hannibal", "Hèdi", "Henryk", "Hilarion", "Hugh",
+            "Hadrien", "Hanot", "Hèdy", "Herald", "Hilel", "Hugo",
+            "Hady", "Hans", "Heifara", "Herb", "Hillel", "Hugolin",
+            "Hafez", "Hänsel", "Heimana", "Herbert", "Hipolito", "Hugues",
+            "Hafid", "Hanselo", "Heinrich", "Herbod", "Hippolyte", "Humbert",
+            "Haï", "Hansi", "Heifara", "Hercule", "Hiro", "Humberto",
+            "Haïg", "Hansko", "Heleazar", "Hercules", "Hoang", "Humphrey",
+            "Haïgag", "Harald", "Helian", "Heremoana", "Hoarii", "Huseyin",
+            "Haïkaram", "Haris", "Hélias", "Heribert", "Hocine", "Hussein",
+            "Haïkaz", "Harley", "Hélier", "Heriberto", "Hodei", "Huu",
+            "Haïm", "Harold", "Hélio", "Herlé", "Hoel", "Huy",
+            "Hakem", "Haron", "Héliodore", "Herman", "Homère", "Hyacinth",
+            "Hakim", "Haroun", "Héliodoro", "Hermann", "Hong", "Hyacinthe",
+            "Hal", "Harouna", "Hélios", "Hermelin", "Honorat",
+            "Halil", "Harris", "Helmes", "Hermès", "Honoré",
+            "Halim", "Harrison", "Helmi", "Hernando", "Honorin",
+            "Hamdi", "Harry", "Helmut", "Herold", "Honorus",
+            "Hamed", "Harun", "Helori", "Heroldus", "Horace",
+            "Hamid", "Harvey", "Hélory", "Herrando", "Horatio",
+            "Hamidou", "Hasan", "Hendrick", "Hervé", "Hosni",
+            "Hamilton", "Hassan", "Hendrik", "Hervey", "Hossein",
+            "Hampe", "Hassane", "Henne", "Hess", "Houarn",
+            "Hamza", "Hassen", "Henneke", "Hias", "Houcine"
+        ];
+        const lastNames = ["Johnson", "Davis", "Thompson", "Rodriguez", "Martinez", "Jackson", "Makarov", "Freeman", "Fring", "Anderson", "Wilson", "Taylor", "Thomas", "Moore", "Walker", "Hill", "Lewis", "Young", "Harris", "Clark", "Turner", "Allen", "Baker", "Campbell", "Carter", "Edwards", "Foster", "Gray", "Howard", "Jenkins", "King", "Morgan", "Smith", "Brown", "Lee", "Adams", "Wright", "Harris", "Parker", "Morris", "Rogers", "Cooper", "Bennett", "Flores", "Bryant", "Stewart", "Reed", "Cook", "Rice", "Griffin", "Ward", "Perez", "Bell", "Scott", "Turner", "Reyes", "Gonzalez", "Murphy", "Collins", "Hughes", "Long", "Anderson", "Clark", "Evans", "Gonzalez", "Hall", "Johnson", "Kelly", "Lewis", "Mitchell", "Nelson", "Parker", "Ramirez", "Roberts", "Sanders", "Turner", "White", "Young", "Adams", "Baker", "Carter", "Davis", "Edwards", "Foster", "Gray", "Hayes", "Jackson", "King", "Morgan", "Price", "Stewart"];
+        const postes = [
+            "Gardien de but",
+            "Arrière latéral",
+            "Piston",
+            "Défenseur central",
+            "Libéro",
+            "Milieu central",
+            "Milieu latéral",
+            "Milieu défensif",
+            "Milieu offensif",
+            "Avant-centre",
+            "Attaquant de soutien",
+            "Ailier",
+            "Buteur",
+            "Milieu relayeur",
+            "Milieu récupérateur",
+            "Milieu polyvalent",
+            "Milieu excentré",
+            "Attaquant pivot",
+            "Attaquant de rupture",
+            "Deuxième attaquant",
+            "Défenseur latéral",
+            "Défenseur axial",
+            "Défenseur polyvalent"
+        ];
+
+        const numCharacters = 1000;
+        const minAge = 16;
+        const maxAge = 50;
+        const minNoteGenerale = 40;
+        const maxNoteGenerale = 100;
+
+        const noteRangePercentages = [
+            { range: [40, 60], percentage: 60 },
+            { range: [61, 80], percentage: 35 },
+            { range: [81, 90], percentage: 4.75 },
+            { range: [91, 100], percentage: 0.25 }
+        ];
+
+        const ageRangePercentages = [
+            { range: [16, 20], percentage: 40 },
+            { range: [21, 30], percentage: 25 },
+            { range: [31, 40], percentage: 25 },
+            { range: [41, 50], percentage: 10 }
+        ];
+
+        for (let i = 0; i < numCharacters; i++) {
+            const name = names[Math.floor(Math.random() * names.length)];
+            let lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const poste = postes[Math.floor(Math.random() * postes.length)];
+            const noteGenerale = generateRandomByPercentage(noteRangePercentages, minNoteGenerale, maxNoteGenerale);
+            const age = generateRandomByPercentage(ageRangePercentages, minAge, maxAge);
+            const marketValue = calculateMarketValue(age, noteGenerale, poste);
+
+            const characterId = generateUniqueId();
+
+            while (name === lastName){
+                lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            }
+
+            // Vérifier si l'ID généré est déjà utilisé
+            while (generatedCharacterIds.includes(lastCharacterId)) {
+                lastCharacterId++;
+            }
+
+            const character = {
+                id: lastCharacterId,
+                name,
+                lastName,
+                poste,
+                age,
+                noteGenerale,
+                marketValue,
+                characterId
+            };
+
+            characters.push(character);
+
+            lastCharacterId++;
+        }
+
+        sortCharacters();
+    }
+
+    function displayCharacters() {
+        const characterList = document.getElementById("characterList");
+        characterList.innerHTML = ""; // Effacer les personnages actuels
+
+        for (let i = 0; i < characters.length; i++) {
+            const character = characters[i];
+            const colorIndex = character.colorIndex;
+
+            const characterElement = document.createElement("div");
+            characterElement.innerHTML = `
+            <div class='block p-2'>
+                <div class='w-full flex items-center justify-between'>
+                    <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
+                    <p>${character.id}</p>
+                </div>
+                <div class='w-full flex items-center justify-between'>
+                    <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
+                    <p>${character.name.toLowerCase()}${character.lastName.toLowerCase()}_${character.characterId}</p>
+                </div>
+            </div>
+        `;
+            characterElement.className = `character-row character-row-${i}`;
+            characterElement.id = character.characterId;
+
+            characterList.appendChild(characterElement);
+
+            // Appliquer les couleurs du cache ou générer de nouvelles couleurs
+            if (colorCache[colorIndex]) {
+                characterElement.style.backgroundColor = colorCache[colorIndex].backgroundColor;
+                characterElement.style.color = colorCache[colorIndex].textColor;
+            } else {
+                const backgroundColor = getRandomColorRGBA();
+                const textColor = isColorTooDarkRGBA(backgroundColor) ? "#ffffff" : "#000000";
+                characterElement.style.backgroundColor = backgroundColor;
+                characterElement.style.color = textColor;
+                character.colorIndex = colorCache.length;
+                colorCache.push({ backgroundColor, textColor });
+            }
+        }
+    }
+
+    // Fonction pour générer une couleur aléatoire en format hexadécimal
+    function getRandomColorHEXA() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function getRandomColorRGBA() {
+        const getRandomValue = () => Math.floor(Math.random() * 256);
+        const r = getRandomValue();
+        const g = getRandomValue();
+        const b = getRandomValue();
+        return `rgba(${r}, ${g}, ${b}, 1)`;
+    }
+
+    // Fonction pour vérifier si une couleur est trop sombre
+    function isColorTooDarkHEXA(color) {
+        const hex = color.substring(1); // Supprimer le symbole #
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+
+        // Calculer la luminosité relative de la couleur
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+        // Vérifier si la luminosité est en dessous d'un seuil
+        return brightness < 128;
+    }
+
+    function isColorTooDarkRGBA(color) {
+        // Supprimer "rgba(" et ")" pour obtenir seulement les valeurs des canaux
+        const rgbaValues = color.substring(5, color.length - 1).split(",").map(val => parseFloat(val.trim()));
+        const r = rgbaValues[0];
+        const g = rgbaValues[1];
+        const b = rgbaValues[2];
+
+        // Calculer la luminosité relative de la couleur (même formule pour le format RGB)
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+        // Vérifier si la luminosité est en dessous d'un seuil
+        return brightness < 128;
+    }
+
+    // Fonction pour générer un ID unique
+    function generateUniqueId() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const length = 50;
+        let uniqueId = "";
+        for (let i = 0; i < length; i++) {
+            uniqueId += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return uniqueId;
+    }
+
+    function calculateMarketValue(age, noteGenerale, poste) {
+        const baseValue = age * noteGenerale;
+        let ageFactor, noteFactor, posteFactor;
+
+        if (age === 16) {
+            ageFactor = 25;
+        } else if (age >= 17 && age <= 20) {
+            ageFactor = 50;
+        } else if (age >= 21 && age <= 25) {
+            ageFactor = 25;
+        } else if (age >= 26 && age <= 30) {
+            ageFactor = 10;
+        } else if (age >= 31 && age <= 35) {
+            ageFactor = 5;
+        } else if (age >= 36 && age <= 40) {
+            ageFactor = 2;
+        } else {
+            ageFactor = 1;
+        }
+
+        if (noteGenerale >= 40 && noteGenerale <= 60) {
+            noteFactor = 10;
+        } else if (noteGenerale >= 61 && noteGenerale <= 80) {
+            noteFactor = 25;
+        } else if (noteGenerale >= 81 && noteGenerale <= 90) {
+            noteFactor = 50;
+        } else if (noteGenerale >= 91 && noteGenerale <= 95) {
+            noteFactor = 75;
+        } else if (noteGenerale >= 96 && noteGenerale <= 100) {
+            noteFactor = 100;
+        } else {
+            noteFactor = 1;
+        }
+
+        if (poste === "Gardien de but") {
+            posteFactor = 25;
+        } else if (poste === "Défenseur central" || poste === "Arrière latéral" || poste === "Défenseur polyvalent") {
+            posteFactor = 25;
+        } else if (poste === "Milieu central" || poste === "Milieu latéral" || poste === "Milieu défensif" || poste === "Milieu offensif") {
+            posteFactor = 25;
+        } else if (poste === "Avant-centre" || poste === "Attaquant de soutien" || poste === "Ailier" || poste === "Buteur") {
+            posteFactor = 25;
+        } else {
+            posteFactor = 25;
+        }
+
+        let result = baseValue * ageFactor * noteFactor * posteFactor;
+        if (result <= 10000) {
+            result = 10000;
+        }
+        return result;
+    }
+
+    function generateRandomByPercentage(rangePercentages, min, max) {
+        const randomNum = Math.random() * 100;
+        let cumulativePercentage = 0;
+
+        for (const rangePercentage of rangePercentages) {
+            cumulativePercentage += rangePercentage.percentage;
+
+            if (randomNum <= cumulativePercentage) {
+                return Math.floor(Math.random() * (rangePercentage.range[1] - rangePercentage.range[0] + 1)) + rangePercentage.range[0];
+            }
+        }
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function sortCharacters() {
+        const sortOption = document.getElementById("sortOption").value;
+        const sortOrder = document.getElementById("sortOrder").checked ? 1 : -1;
+
+        characters.sort((a, b) => {
+            if (a[sortOption] < b[sortOption]) {
+                return -1 * sortOrder;
+            }
+            if (a[sortOption] > b[sortOption]) {
+                return 1 * sortOrder;
+            }
+            return 0;
+        });
+
+        displayCharacters();
+    }
+
+</script>
+
+</body>
+</html>
