@@ -797,9 +797,19 @@
         <div class="absolute top-6 left-6 text-[25px] text-white">GÉNÉRATEUR DE PERSONNAGE</div>
 
         <div class="w-[90vh] bg-zinc-700 border-t-[6px] border-t-blue-500 border border-zinc-500 rounded-sm">
-            <div class="px-3 py-2 border-b border-zinc-500">
-                <div class="w-full flex items-center text-white">
-                    <p class="text-[15px]">Générateur de personnage</p>
+            <div class="px-3 py-2 bg-blue-500 border-b border-zinc-500">
+                <div class="w-full flex items-center justify-between">
+                    <p class="text-[15px] text-white">Générateur de personnage</p>
+                    <div class="flex items-center gap-2 text-white">
+                        <p class="text-[14px]">Trier par :</p>
+                        <select id="sortOption" onchange="sortCharacters()">
+                            <option value="id">ID</option>
+                            <option value="name">Prénom</option>
+                            <option value="marketValue">Prix</option>
+                        </select>
+                        <input type="checkbox" id="sortOrder" onchange="sortCharacters()">
+                        <label for="sortOrder" class="text-[14px]">Ordre croissant</label>
+                    </div>
                 </div>
             </div>
             <div class="px-3 p-3 border-b border-zinc-500">
@@ -807,18 +817,12 @@
                     <div id="characterList"></div>
                 </div>
             </div>
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1">
                 <div id="btnGenerationPersonnage" onclick="generateCharacters()" class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-blue-500 hover:opacity-75 transition-all cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     <p class="text-[14px]">Générer plusieurs personnage</p>
-                </div>
-                <div class="w-full h-[4vh] flex items-center justify-center gap-2 text-white bg-green-500 hover:opacity-75 transition-all cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    <p class="text-[14px]">Envoyer dans la base de données</p>
                 </div>
             </div>
         </div>
@@ -904,9 +908,12 @@
         activerOnglets(cardId);
     });
 
+    let lastCharacterId = 0;
+    const generatedCharacterIds = [];
+    const characters = [];
+    const colorCache = [];
+
     function generateCharacters() {
-        const characterList = document.getElementById("characterList");
-        const numCharacters = 50;
         const names = [
             // A
             "Adrien", "Augustin", "Axel", "Amaury", "Arsene",
@@ -987,16 +994,17 @@
             "Défenseur polyvalent"
         ];
 
+        const numCharacters = 1000;
         const minAge = 16;
         const maxAge = 50;
         const minNoteGenerale = 40;
         const maxNoteGenerale = 100;
 
         const noteRangePercentages = [
-            { range: [40, 60], percentage: 50 },
-            { range: [61, 80], percentage: 37.5 },
-            { range: [81, 90], percentage: 10 },
-            { range: [91, 100], percentage: 2.5 }
+            { range: [40, 60], percentage: 60 },
+            { range: [61, 80], percentage: 35 },
+            { range: [81, 90], percentage: 4 },
+            { range: [91, 100], percentage: 1 }
         ];
 
         const ageRangePercentages = [
@@ -1006,10 +1014,7 @@
             { range: [41, 50], percentage: 10 }
         ];
 
-        const characters = [];
-
         for (let i = 0; i < numCharacters; i++) {
-            const id = i;
             const name = names[Math.floor(Math.random() * names.length)];
             let lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const poste = postes[Math.floor(Math.random() * postes.length)];
@@ -1023,8 +1028,13 @@
                 lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             }
 
+            // Vérifier si l'ID généré est déjà utilisé
+            while (generatedCharacterIds.includes(lastCharacterId)) {
+                lastCharacterId++;
+            }
+
             const character = {
-                id,
+                id: lastCharacterId,
                 name,
                 lastName,
                 poste,
@@ -1035,42 +1045,56 @@
             };
 
             characters.push(character);
+
+            lastCharacterId++;
         }
 
-        characters.sort((a, b) => b.marketValue - a.marketValue);
+        sortCharacters();
+    }
+
+    function displayCharacters() {
+        const characterList = document.getElementById("characterList");
+        characterList.innerHTML = ""; // Effacer les personnages actuels
 
         for (let i = 0; i < characters.length; i++) {
             const character = characters[i];
+            const colorIndex = character.colorIndex;
 
             const characterElement = document.createElement("div");
-            characterElement.innerHTML = `<div class='block p-2'>
-              <div class='w-full flex items-center justify-between'>
-                <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
-                <p>${character.id}</p>
-              </div>
-              <div class='w-full flex items-center justify-between'>
-                <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
-                <p>${character.name.toLowerCase()}${character.lastName.toLowerCase()}_${character.characterId}</p>
-              </div>
-            </div>`;
+            characterElement.innerHTML = `
+            <div class='block p-2'>
+                <div class='w-full flex items-center justify-between'>
+                    <p>${character.name} ${character.lastName}, ${character.poste}, ${character.age} ans, ${character.noteGenerale} de général</p>
+                    <p>${character.id}</p>
+                </div>
+                <div class='w-full flex items-center justify-between'>
+                    <p>${character.marketValue.toLocaleString()} € de valeur marchande</p>
+                    <p>${character.name.toLowerCase()}${character.lastName.toLowerCase()}_${character.characterId}</p>
+                </div>
+            </div>
+        `;
             characterElement.className = `character-row character-row-${i}`;
             characterElement.id = character.characterId;
 
             characterList.appendChild(characterElement);
-            console.log(characterElement);
-        }
 
-        // Appliquer des couleurs différentes aux lignes et ajuster la couleur du texte
-        const rows = document.getElementsByClassName("character-row");
-        for (let j = 0; j < rows.length; j++) {
-            const backgroundColor = getRandomColor();
-            rows[j].style.backgroundColor = backgroundColor;
-            rows[j].style.color = isColorTooDark(backgroundColor) ? "#ffffff" : "#000000";
+            // Appliquer les couleurs du cache ou générer de nouvelles couleurs
+            if (colorCache[colorIndex]) {
+                characterElement.style.backgroundColor = colorCache[colorIndex].backgroundColor;
+                characterElement.style.color = colorCache[colorIndex].textColor;
+            } else {
+                const backgroundColor = getRandomColorRGBA();
+                const textColor = isColorTooDarkRGBA(backgroundColor) ? "#ffffff" : "#000000";
+                characterElement.style.backgroundColor = backgroundColor;
+                characterElement.style.color = textColor;
+                character.colorIndex = colorCache.length;
+                colorCache.push({ backgroundColor, textColor });
+            }
         }
     }
 
     // Fonction pour générer une couleur aléatoire en format hexadécimal
-    function getRandomColor() {
+    function getRandomColorHEXA() {
         const letters = "0123456789ABCDEF";
         let color = "#";
         for (let i = 0; i < 6; i++) {
@@ -1079,14 +1103,36 @@
         return color;
     }
 
+    function getRandomColorRGBA() {
+        const getRandomValue = () => Math.floor(Math.random() * 256);
+        const r = getRandomValue();
+        const g = getRandomValue();
+        const b = getRandomValue();
+        return `rgba(${r}, ${g}, ${b}, 1)`;
+    }
+
     // Fonction pour vérifier si une couleur est trop sombre
-    function isColorTooDark(color) {
+    function isColorTooDarkHEXA(color) {
         const hex = color.substring(1); // Supprimer le symbole #
         const r = parseInt(hex.substring(0, 2), 16);
         const g = parseInt(hex.substring(2, 4), 16);
         const b = parseInt(hex.substring(4, 6), 16);
 
         // Calculer la luminosité relative de la couleur
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+        // Vérifier si la luminosité est en dessous d'un seuil
+        return brightness < 128;
+    }
+
+    function isColorTooDarkRGBA(color) {
+        // Supprimer "rgba(" et ")" pour obtenir seulement les valeurs des canaux
+        const rgbaValues = color.substring(5, color.length - 1).split(",").map(val => parseFloat(val.trim()));
+        const r = rgbaValues[0];
+        const g = rgbaValues[1];
+        const b = rgbaValues[2];
+
+        // Calculer la luminosité relative de la couleur (même formule pour le format RGB)
         const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
         // Vérifier si la luminosité est en dessous d'un seuil
@@ -1170,6 +1216,23 @@
         }
 
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function sortCharacters() {
+        const sortOption = document.getElementById("sortOption").value;
+        const sortOrder = document.getElementById("sortOrder").checked ? 1 : -1;
+
+        characters.sort((a, b) => {
+            if (a[sortOption] < b[sortOption]) {
+                return -1 * sortOrder;
+            }
+            if (a[sortOption] > b[sortOption]) {
+                return 1 * sortOrder;
+            }
+            return 0;
+        });
+
+        displayCharacters();
     }
 </script>
 
